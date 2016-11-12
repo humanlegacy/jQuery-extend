@@ -56,9 +56,10 @@
                 }
                 this.timer = setInterval(auto, this.opts.interval);
 				this.container.hover(function() {
+					console.log(1);
 					clearInterval(self.timer);
 				},function() {
-					self.autoPlay(self);
+					self.timer = setInterval(auto, self.opts.interval);
 				});
             }    
         },
