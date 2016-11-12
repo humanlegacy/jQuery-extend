@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/hello.css">
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>  
+<script type="text/javascript" src="js/jquery.hellotabs.js"></script>
+<title>jquery.hellotabs.js</title>
+</head>
+<body>
+<style>ul,li{padding:0;margin:0;list-style:none;}</style>
+<script>
+$(function(){
+	$(".hello-tabs-1").helloTabs({
+		autoPlay:true,
+		triggerName:['Black','Red','Yellow','White','A long title'],
+		interval:2000,
+		event:'mouseover'	
+	});
+	$(".hello-tabs-2").helloTabs({
+		autoPlay:false,
+		triggerName:['Black','Red','Yellow','White','A long title'],
+		event:'click'	
+	});	
+})
+</script>
+  
+<div class="title of list">
+    <h2 style="font-family:arial;">jQuery.hellotabs.js</h2>
+</div>
+   
+<div class="hello-tabs-1 hello-tabs" >
+      <ul class="container">
+           <li>your vision. Our custom and complete solution addresses and alleviates all common issues associated with digital eye strain, effects of artificial blue light, visual stress and fatigue. As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light, ergonomic properties not found in inferior lens material. Our proprietary lens design aids natural focusing to provide sharper</li>
+           <li> clearer vision, resulting in less strain on ciliary muscles and frame your face to reduce effects of dry eye. In addition, custom tints and premium coatings block high-energy, artificial blue light, UV and glare to protect your vision. The result – improved clarity, focus and performance designed to meet demanding visual needs of our generation. Prescription Rx eyeglasses are available for anyone that require corrective lenses.</li>
+           <li>addresses and alleviates all common issues associated with digital eye strain, effects of artificial blue light, visual stress and fatigue. As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light</li>
+           <li>As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light, ergonomic properties not found in inferior lens material. Our proprietary lens design aids natural focusing to provide sharper</li>
+           <li>Prescription Rx eyeglasses are available for anyone that require corrective lenses.Our proprietary lens design aids natural focusing to provide sharper</li>
+      </ul>
+</div>
+<br />
+<div class="hello-tabs-2 hello-tabs" >
+      <ul class="container">
+           <li>your vision. Our custom and complete solution addresses and alleviates all common issues associated with digital eye strain, effects of artificial blue light, visual stress and fatigue. As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light, ergonomic properties not found in inferior lens material. Our proprietary lens design aids natural focusing to provide sharper</li>
+           <li> clearer vision, resulting in less strain on ciliary muscles and frame your face to reduce effects of dry eye. In addition, custom tints and premium coatings block high-energy, artificial blue light, UV and glare to protect your vision. The result – improved clarity, focus and performance designed to meet demanding visual needs of our generation. Prescription Rx eyeglasses are available for anyone that require corrective lenses.</li>
+           <li>addresses and alleviates all common issues associated with digital eye strain, effects of artificial blue light, visual stress and fatigue. As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light</li>
+           <li>As the world leader in computer eyewear, GUNNAR pioneered an advanced lens material that offers distortion free, ultra-light, ergonomic properties not found in inferior lens material. Our proprietary lens design aids natural focusing to provide sharper</li>
+           <li>Prescription Rx eyeglasses are available for anyone that require corrective lenses.Our proprietary lens design aids natural focusing to provide sharper</li>
+      </ul>
+</div>
+	
+</body>
+</html>

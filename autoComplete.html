@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/hello.css">
+<script type="text/javascript" src="js/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.helloautoComplete.js"></script>
+<title>jquery.helloautoComplete.js</title>
+</head>
+<body>
+<style>
+    input{outline: none;}
+    ul,li{padding: 0;margin: 0;list-style: none;}   
+</style>
+
+
+<script>
+$(function(){
+    var data = [{index:1,item:'white'},{index:2,item:'black'},{index:3,item:'yellow'},{index:4,item:'blue'}];
+    $(".helloautoComplete").helloAutocomplete({
+            data:data,
+            autoFocus: true,
+			menu:'.my-menu',
+			callBack:function(data){
+			   console.log(data.index);
+			   console.log(data.item);
+			}
+    });
+    
+})
+</script>
+
+<div class="title of list">
+    <h2 style="font-family:arial;">jQuery.helloautoComplete.js</h2>
+</div>
+
+   <input type="text" class="helloautoComplete" /> - <input type="text" class="helloautoComplete" />
+    
+</body>
+</html>

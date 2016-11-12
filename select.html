@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/hello.css">
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>  
+<script type="text/javascript" src="js/jquery.helloselect.js"></script>
+<title>jquery.helloselect.js</title>
+</head>
+<body>
+<style>ul,li{padding:0;margin:0;list-style:none;}</style>
+<script>
+$(function(){
+    
+    $(".select-default-1").helloSelect({
+        city:false,
+		input:"#default-1"
+    });
+    $(".select-default-2").helloSelect({
+        city:false,
+		input:"#default-2"
+    });	
+	
+    $(".city").helloSelect({
+		city:true,
+		data: 'js/citylink.json',
+		input:'#city1'    
+    });  
+    $(".city2").helloSelect({
+		city:true,
+		data: 'js/citylink.json',
+		input:'#city2'
+    });  
+    
+})
+</script>
+  
+<div class="title of list">
+    <h2 style="font-family:arial;">jQuery.helloselect.js</h2>
+</div>
+   
+
+<p style="font-size:13px;color:#555;line-height:25px;">全国三级联动</p>
+<div class="hello-select city"></div>
+<div class="hello-select city2"></div>
+<p>
+    <input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="city1" placeholder="将在这里显示结果">
+    <input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="city2" placeholder="将在这里显示结果">
+</p>
+
+<br />
+<br />
+<p style="font-size:13px;color:#555;line-height:25px;">普通下拉菜单</p>
+<div class="hello-select select-default-1" >
+      <ul class="container">
+           <li>Hello Widget前端组件库</li>
+           <li>jquery.helloselect.js插件</li>
+           <li class="split"></li>
+           <li>玩命显示中...</li>
+      </ul>
+</div>						
+<div class="hello-select select-default-2" >
+  <ul class="container">
+	   <li>Hello HDC</li>
+	   <li>Hello Widget前端组件库</li>
+	   <li>jquery.helloselect.js插件</li>
+	   <li>Yellow</li>
+	   <li class="split"></li>
+	   <li>玩命显示中...</li>
+  </ul>
+</div>	
+<p>
+<input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="default-1">	
+<input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="default-2">	
+</p>
+	
+
+    
+</body>
+</html>

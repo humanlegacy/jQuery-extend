@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>jquery.hellodialog.js</title>
+<link rel="stylesheet" type="text/css" href="css/hello.css">
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>  
+<script type="text/javascript" src="js/jquery.hellodialog.js"></script>
+</head>
+<body>
+
+<script>
+$(function(){
+
+	$(".hello-msg").click(function(){
+			Hello.msg({
+				width:320,
+				title:'Hello.msg',
+				msg:'Hello.msg玩命提示中....点击确定关闭提示窗口'
+			});
+	});
+	
+	$(".hello-confirm").click(function(){
+			Hello.confirm({
+				width:320,
+				title:'Hello.confirm',
+				msg:'Hello.confirm....点击按钮执行回调函数',
+				confirmFn:function(){
+					alert("点击确定");
+				},
+				cancelFn:function(){
+					alert("点击取消");
+				}
+			});
+	});
+		
+	$(".hello-load").click(function(){
+			Hello.load({
+				width:620,
+				title:'Hello.load()',
+				firmBtn:'关闭',
+				url:'dialog_load.html',
+				async:false
+			});
+	});	
+	
+	$(".hello-page").click(function(){
+			Hello.page({
+				width:820,
+				height:600,
+				url:'http://www.baidu.com'
+			});
+	});	
+		
+})
+</script>
+
+<div class="title of list">
+    <h2 style="font-family:arial;">jQuery.hellodialog.js</h2>
+</div>
+
+<a href="jacascript:" class="dialogBtns hello-msg">hello-msg</a>
+<a href="jacascript:" class="dialogBtns hello-confirm">hello-confirm</a>
+<a href="jacascript:" class="dialogBtns hello-load">hello-load</a>
+<a href="jacascript:" class="dialogBtns hello-page">hello-page</a>
+	
+	
+
+    
+</body>
+</html>
