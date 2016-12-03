@@ -107,3 +107,26 @@ h6{font-size: 12px;}
 .hello-autocomplete li:hover{background:#3799e2;color: #fff;}
 .hello-autocomplete.current{display: block;}
 .hello-autocomplete ul{max-height: 300px;overflow-y: auto;}
+
+/*图片裁剪*/
+.hello-clip{width: auto;height: auto;display: inline-block;}
+.hello-clip-wrap{background: #ccc;position: relative;z-index: 1;overflow: hidden;}    
+.hello-clip-wrap img{cursor: move;display: block;position: absolute;z-index: 2;top: 0;left: 0;}
+.hello-clip-wrap form input{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 1;cursor: pointer;opacity: 0;}
+.hello-clip-wrap form span{font-size: 12px;color: #eee;font-style: italic;display: block;width: 100%;text-align: center;}
+.hello-clip-wrap canvas{display: none;}
+.hello-clip-tools{position: relative;z-index: 1;}
+.hello-clip-tools a{font-size: 13px;color: #099dc9;line-height: 2;}	
+.hello-clip-tools a.hello-clip-delete{float: right;}	
+.hello-clip-tools-wrap{position: absolute;z-index: 1;width: 300px;border: 1px solid #ccc;border-radius: 5px;padding: 5px 10px;font-size: 13px;top: 35px;display: none;}
+.hello-clip-tools-wrap .arrow{font-style: normal;font-size: 35px;position: absolute;z-index: 1;left: 5px;top: -23px;color: #fff;text-shadow: 0 -1px 0 #aaa;}
+.hello-clip-scale{display:inline-block;width: 260px; background:#eee;height:10px;position:relative;z-index:1;}
+.hello-clip-scale-bar{display:inline-block;width:20px;height:10px;background:#fff;box-shadow:0 0 5px rgba(0,0,0,0.3);position:absolute;top:0;z-index:1;cursor:w-resize;}
+
+
+
+
+
+
+
+
