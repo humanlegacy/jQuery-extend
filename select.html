@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>  
+<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
 <script type="text/javascript" src="js/jquery.helloselect.js"></script>
 <title>jquery.helloselect.js</title>
 </head>
@@ -23,12 +23,12 @@ $(function(){
 	
     $(".city").helloSelect({
 		city:true,
-		data: 'js/citylink.json',
+		 data: 'js/libs/data.json',
 		input:'#city1'    
     });  
     $(".city2").helloSelect({
 		city:true,
-		data: 'js/citylink.json',
+		 data: 'js/libs/data.json',
 		input:'#city2'
     });  
     
@@ -38,9 +38,9 @@ $(function(){
 <div class="title of list">
     <h2 style="font-family:arial;">jQuery.helloselect.js</h2>
 </div>
-   
+<br /> 
 
-<p style="font-size:13px;color:#555;line-height:25px;">全国三级联动</p>
+<p>全国三级联动</p>
 <div class="hello-select city"></div>
 <div class="hello-select city2"></div>
 <p>

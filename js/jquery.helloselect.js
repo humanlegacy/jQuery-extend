@@ -1,45 +1,46 @@
 ; (function($, window, document, undefined) {
-    function select(ele, opts) {
-        this.defaults = {
-            title: '请选择',
-            city: false,
-            split: '-',
-            data: 'citylink.json',
-			input:'#id'
-        };
-        this.opts = $.extend({},this.defaults, opts);
-        this.ele = ele;
-    }
-	select.prototype = {
-		open:function(self){
+	function Select(ele, opts) {
+		this.defaults = {
+			title: '请选择',
+			city: false,
+			split: '-',
+			data: 'libs/data.json',
+			input: '#id'
+		};
+		this.opts = $.extend({},
+		this.defaults, opts);
+		this.ele = ele;
+	}
+	Select.prototype = {
+		open: function(self) {
 			$(this.ele).on('click', '.select-btn',function() {
 				$(this).next().is(":visible") ? $(this).next().removeClass("current") : $(this).next().addClass("current");
 			});
 		},
-		close:function(self){
+		close: function(self) {
 			$(this.ele).find(".container").bind("mouseleave",function() {
 				$(this).removeClass('current');
 			});
 		},
-		select:function(self){
+		select: function(self) {
 			$(this.ele).find(".container").on('click', 'li',function() {
 				var selected = $(this).text();
 				$(this).parent().parent().find("a").text(selected);
-				self.opts.input ? $(self.opts.input).val(selected) : '';   
+				self.opts.input ? $(self.opts.input).val(selected) : '';
 				$(this).removeClass("current");
 			});
 		},
-		common:function(self){
+		common: function(self) {
 			this.display(this.opts.title);
 			this.open(self);
 			this.select(self);
 			this.close(self);
 		},
-		cityOpts:function(optsList){
+		cityOpts: function(optsList) {
 			var cityOptsList = '<li>' + optsList + '</li>';
 			return cityOptsList;
 		},
-		city:function(self){
+		city: function(self) {
 			var html = '<div class="container container-city">' + '<div class="tabs">' + '<span class="current">省级</span><span>市级</span><span>区级</span>' + '</div>' + '<div class="container-inner"><ul class="current"></ul><ul></ul><ul></ul></div>' + '</div>';
 			$(this.ele).html(html);
 			var M = $(this.ele).find(".container-inner");
@@ -63,8 +64,7 @@
 				$(this).parent().nextAll().html("");
 			});
 
-			$.getJSON(this.opts.data,function(result) {
-				$.each(result[0],function(p1) {
+			$.getJSON(this.opts.data,function(result) {$.each(result[0],function(p1) {
 					self.ele.find("ul").eq(0).append(self.cityOpts(p1));
 				});
 
@@ -101,22 +101,21 @@
 						});
 					});
 					$(this).parentsUntil(self.ele).parent().find('.select-btn').find('a').html(cityArr.join(self.opts.split));
-					self.opts.input ? $(self.opts.input).val(cityArr.join(self.opts.split)) : '';    
+					self.opts.input ? $(self.opts.input).val(cityArr.join(self.opts.split)) : '';
 				});
-
 			});
 		},
-		display:function(type){
+		display: function(type) {
 			var html = '<span class="select-btn"><a href="javascript:void(0);">' + type + '</a><i class="arrow"></i></span>';
 			$(this.ele).prepend(html);
 		},
-		init:function(self){
+		init: function(self) {
 			var self = this;
 			this.opts.city ? this.city(self) : this.common(self);
 		}
 	}
-    $.fn.helloSelect = function(opts) {
-        var fn = new select(this, opts);
-        return fn.init();
-    }
+	$.fn.helloSelect = function(opts) {
+		var fn = new Select(this, opts);
+		return fn.init();
+	}
 })(jQuery, window, document);

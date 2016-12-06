@@ -3,22 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>  
+<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
 <script type="text/javascript" src="js/jquery.hellotable.js"></script>
 <title>jquery.hellotable.js</title>
 </head>
 <body>
 <script>
  $(function(){
-     $(".hello-table").helloTable();
+     $(".table-1").helloTable({
+			width: 550,
+			height: 350,
+			rowFixed: 2,
+			//colFixed:1
+	 });
  });  
 </script>
   
 <div class="title of list">
     <h2 style="font-family:arial;">jQuery.hellotable.js</h2>
 </div>
-   
-<table border="0" cellspacing="0" cellpadding="0" class="hello-table">
+<br />  
+    
+<table border="0" cellspacing="0" cellpadding="0" class="hello-table table-1">
     <thead>
         <tr>
             <td>编号</td><td>姓名</td><td>性别</td><td>年龄</td><td>联系方式</td><td>邮箱</td>
@@ -129,6 +135,6 @@
         </tr>		
     </tbody>
 </table>
-				
+							
 </body>
 </html>

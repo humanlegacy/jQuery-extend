@@ -1,5 +1,5 @@
 body{font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;}
-h1,h2,h3,h4,h5,h6{font-family: inherit;font-weight: 300 !important;color: inherit;}
+h1,h2,h3,h4,h5,h6{font-family: inherit;font-weight: 300 !important;color: inherit;padding: 0;margin: 0;}
 h1 {font-size: 36px;}
 h2 {font-size: 30px;}
 h3 {font-size: 24px;}
@@ -8,12 +8,12 @@ h5 {font-size: 14px;}
 h6{font-size: 12px;}
 /*可轮播选项卡*/						
 .hello-tabs{background: #fff;width:600px;border:1px solid #ddd;}
-.hello-tabs .trigger{width:100%;height:35px;line-height:35px;border-bottom:1px solid #e0e0e0;overflow:hidden;}
-.hello-tabs .trigger li{border-left:1px solid #e0e0e0;margin-left:-1px;font-size:14px;width:120px;color:#337ab7;text-align:center;float:left;cursor:pointer;display: inline-block;}
-.hello-tabs .trigger li.current{background:#eee;}
-.hello-tabs .container{width:100%;overflow:hidden;}
-.hello-tabs .container li{min-height: 150px;background:#fff;padding:10px;display:none;font-size:13px;line-height:1.5;}
-.hello-tabs .container li.current{display:block;}
+.hello-tabs .hello-tabs-trigger{width:100%;height:35px;line-height:35px;border-bottom:1px solid #e0e0e0;overflow:hidden;}
+.hello-tabs .hello-tabs-trigger li{border-left:1px solid #e0e0e0;margin-left:-1px;font-size:14px;width:120px;color:#337ab7;text-align:center;float:left;cursor:pointer;display: inline-block;}
+.hello-tabs .hello-tabs-trigger li.current{background:#eee;}
+.hello-tabs .hello-tabs-container{width:100%;overflow:hidden;}
+.hello-tabs .hello-tabs-container li{min-height: 150px;background:#fff;padding:10px;display:none;font-size:13px;line-height:1.5;}
+.hello-tabs .hello-tabs-container li.current{display:block;}
 
 /*下拉菜单&全国三级联动*/					
 .hello-select{display: inline-block;position: relative;width:160px;}
@@ -123,7 +123,13 @@ h6{font-size: 12px;}
 .hello-clip-scale{display:inline-block;width: 260px; background:#eee;height:10px;position:relative;z-index:1;}
 .hello-clip-scale-bar{display:inline-block;width:20px;height:10px;background:#fff;box-shadow:0 0 5px rgba(0,0,0,0.3);position:absolute;top:0;z-index:1;cursor:w-resize;}
 
-
+/*自定义滚动条*/
+.hello-scroll{padding:1em;}
+.hello-scroll.no-select{user-select:none;-webkit-user-select:none;-moz-user-select:none;}
+.hello-scroll-wrap{position:relative;z-index:1;overflow:hidden;}
+.hello-scroll-content{position:relative;top:0;z-index:1;}
+.hello-scroll-bar{display:inline-block;width:5px;background:rgba(0,0,0,0.05);border-radius:5px;top:0;right:0;position:absolute;z-index:1;cursor:pointer;transition: background 0.5s;-o-transition: background 0.5s;-ms-transition: background 0.5s;-moz-transition:background 0.5s;-webkit-transition: background 0.5s;}
+.hello-scroll:hover .hello-scroll-bar{background:rgba(0,0,0,0.35);}
 
 
 
