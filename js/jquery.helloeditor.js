@@ -32,7 +32,7 @@
         display:function(){
             this.ele.wrapInner('<div class="hello-editor-wrap"></div>');
             this.ele.find('.hello-editor-wrap').wrapInner('<div class="hello-editor-container" contenteditable="true" spellcheck="false" data-placeholder="请输入内容"></div>');
-            this.ele.find('.hello-editor-wrap').append('<textarea class="hello-editor-textarea"></textarea>');
+            this.ele.find('.hello-editor-wrap').append('<textarea class="hello-editor-textarea" spellcheck="false"></textarea>');
             this.ele.prepend('<div class="hello-editor-tools"></div>');
             this.container =  this.ele.find('.hello-editor-container');
             this.textarea =  this.ele.find('.hello-editor-textarea');
@@ -44,20 +44,14 @@
             }
         },
         sync:function(){
-            if(this.container.html().length > this.textarea.text().length){
-                this.textarea.text($.trim(this.container.html()));
-            }else{
-                this.container.html(this.textarea.text());
-            }
+			this.textarea.is(":visible") ? this.container.html(this.textarea.val()) : this.textarea.val($.trim(this.container.html()));
         },
         toggleCode:function(){
             this.sync();
             this.textarea.toggleClass('current');
         },
         eventFun:function(tType){
-			if(document.execCommand(tType)){
-				document.execCommand(tType)
-			}else{
+			if(!document.execCommand(tType)){
 				if(tType == 'code'){
 					this.toggleCode();
 				}
