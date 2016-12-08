@@ -131,7 +131,26 @@ h6{font-size: 12px;}
 .hello-scroll-bar{display:inline-block;width:5px;background:rgba(0,0,0,0.05);border-radius:5px;top:0;right:0;position:absolute;z-index:1;cursor:pointer;transition: background 0.5s;-o-transition: background 0.5s;-ms-transition: background 0.5s;-moz-transition:background 0.5s;-webkit-transition: background 0.5s;}
 .hello-scroll:hover .hello-scroll-bar{background:rgba(0,0,0,0.35);}
 
-
+/*编辑器*/
+@font-face {
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fontAwesome/font/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), 
+	url("fontAwesome/font/fontawesome-webfont.woff") format("woff"), 
+	url("fontAwesome/font/fontawesome-webfont.ttf") format("truetype"), 
+	url("fontAwesome/font/fontawesome-webfont.svgz#FontAwesomeRegular") format("svg"), 
+	url("fontAwesome/font/fontawesome-webfont.svg#FontAwesomeRegular") format("svg");
+}
+#hello-editor{border: 1px solid #bbb;box-shadow: 0 0 10px rgba(0,0,0,0.2);background: #fff;}
+#hello-editor .hello-editor-wrap{position: relative;z-index: 1;}
+#hello-editor .hello-editor-container{padding: 10px;overflow: auto;outline:none;}
+#hello-editor .hello-editor-textarea{position: absolute;top:0;left: 0; width: 100%;height: 100%;line-height:1.35;background: #000;color: #fff;font-size: 13px;font-family: arial;border:none;z-index: 1;display: none;outline:none;padding:0;}
+#hello-editor .hello-editor-textarea.current{display: block;}
+#hello-editor .hello-editor-tools{border-bottom: 1px solid #ccc;user-select:none;-webkit-user-select:none;}
+#hello-editor .hello-editor-tools button{font-size: 14px;color: #aaa;padding: 0 10px;line-height:30px;cursor: pointer;background:#fff;border:none;outline:none;}
+#hello-editor .hello-editor-tools button:hover,
+#hello-editor .hello-editor-tools button.current{background: #eee;color: #288ce2;}
 
 
 

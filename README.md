@@ -8,3 +8,5 @@
 #v 1.2.0	新增自定义滚动条插件[jquery.helloscroll.js]
 				 添加lib目录
 				 规范js代码，统一换行缩进改为Tab
+#v 1.3.0	新增富文本编辑器[jquery.helloeditor.js]
+				引入fontAwesome图标字体
