@@ -5,16 +5,19 @@
             width:700,
             height:350,
             tools:[
-			'code','bold','italic','underline','strikethrough','indent','outdent',
+			'bold','italic','underline','strikethrough','indent','outdent',
 			'JustifyLeft','JustifyCenter','JustifyRight','JustifyFull',
 			'InsertOrderedList','InsertUnorderedList',
 			]
         };
         this.opts = $.extend({},this.defaults, opts);
-        this.ele = $(ele);
-        this.container = null;
-        this.textarea = null;
-        this.tools = null;
+        this.ele = $(ele),this.container = null,this.textarea = null,this.tools = null;
+		this.select = ['FontName','FontSize','ForeColor'];
+        this.menu = {
+            FontName:['Arial','Verdana','Tahoma','Impact'],
+            FontSize:['1','2','3','4','5','6','7'],
+            ForeColor:['red','green','blue','#ccc','#288ce2','#fab008']
+        };
     }
     helloEditor.prototype = {
         userSelection:function(){
@@ -37,39 +40,75 @@
             this.container =  this.ele.find('.hello-editor-container');
             this.textarea =  this.ele.find('.hello-editor-textarea');
             this.tools =  this.ele.find('.hello-editor-tools');
-            this.ele.css({width : this.opts.width });
-            this.ele.find('.hello-editor-container').css({height : this.opts.height + 'px'});
-            for(k in this.opts.tools){
-               this.ele.find('.hello-editor-tools').append('<button data-tools="'+this.opts.tools[k]+'"><i class="icon-'+this.opts.tools[k]+'"></i></button>');
-            }
+			this.displaySize();
+			this.createbtn();
         },
-        sync:function(){
+		displaySize:function(){
+            this.ele.css({width : this.opts.width,height : this.opts.height });
+            this.ele.find('.hello-editor-wrap').css({height : this.opts.height - this.tools.height()});
+            this.container.css({height : this.opts.height - this.tools.height()-10});	
+		},
+		createbtn:function(){
+            for(s in this.select){
+				this.addButton(this.select[s],'menu');				
+			}
+            for(i in this.opts.tools){
+				if(this.select.indexOf(this.opts.tools[i]) <0){
+					this.addButton(this.opts.tools[i]);
+				}					
+			}
+			this.addButton('code','custom');
+			this.addButton('fullscreen','custom');	
+		},
+		addButton:function(arr,type='exec'){
+			this.ele.find('.hello-editor-tools').append('<div class="hello-editor-btn"><button data-tools="'+arr+'" data-type="'+type+'"><i class="icon-'+arr+'"></i></button></div>'); 
+		},
+        sync:function(self){
 			this.textarea.is(":visible") ? this.container.html(this.textarea.val()) : this.textarea.val($.trim(this.container.html()));
         },
-        toggleCode:function(){
-            this.sync();
-            this.textarea.toggleClass('current');
-        },
-        eventFun:function(tType){
-			if(!document.execCommand(tType)){
-				if(tType == 'code'){
-					this.toggleCode();
+		extend:function(self){
+			var extendFunction = {
+				fullscreen:function(){
+					self.ele.toggleClass('fullscreen');
+					if(self.ele.hasClass('fullscreen')){
+						self.ele.removeAttr('style');
+						self.ele.find('.hello-editor-wrap').css({height : self.ele.height() - self.tools.height()});
+						self.container.css({height : self.ele.height() - self.tools.height()-10});
+					}else{
+						self.displaySize();
+					}
+				},
+				code:function($self){
+					self.sync();
+					$self.toggleClass('current');
+					$self.parent().siblings().find('button').toggleClass('disabled');
+					self.ele.toggleClass('code');
+					if(self.ele.hasClass('code')){
+						$self.parent().siblings().find('button').attr('disabled',true);
+					}else{
+						$self.parent().siblings().find('button').attr('disabled',false);
+					}
 				}
 			}
-            //document.execCommand('InsertHorizontalRule');
-            //document.execCommand(tType);
-        },
-        event:function(self){
-			this.tools.find('button').bind('click',function(e){
-				var tType = $(this).data('tools');
-				self.eventFun(tType);
-			});
-        },
+			return extendFunction;
+		},
         init:function(){
             var self = this;
             this.display();
-            this.sync();
-            this.event(self);
+            this.sync(self);
+			
+			this.tools.find('button').bind('click',function(){
+				var tools = $(this).data('tools' ), type = $(this).data('type'),$self = $(this);
+				if(type == 'exec'){
+					document.execCommand(tools);
+				}else if(type == 'custom'){
+					var extendFunction = self.extend(self);
+					extendFunction[tools]($self);
+				}
+			});
+			
+
+			
         }
     };
 	$.fn.helloEditor = function(opts) {
@@ -77,17 +116,3 @@
 		return fn.init();
 	} 
 })(window,document)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
