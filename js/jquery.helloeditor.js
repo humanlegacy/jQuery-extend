@@ -16,7 +16,7 @@
         this.menu = {
             FontName:['Arial','Verdana','Tahoma','Impact'],
             FontSize:['1','2','3','4','5','6','7'],
-            ForeColor:['red','green','blue','#ccc','#288ce2','#fab008']
+            ForeColor:['white','gray','pink','orange','black','red','green','blue','yellow','#ccc','#288ce2','#fab008']
         };
     }
     helloEditor.prototype = {
@@ -50,7 +50,8 @@
 		},
 		createbtn:function(){
             for(s in this.select){
-				this.addButton(this.select[s],'menu');				
+				this.addButton(this.select[s],'menu');
+				this.addMenu(this.select[s]);
 			}
             for(i in this.opts.tools){
 				if(this.select.indexOf(this.opts.tools[i]) <0){
@@ -63,13 +64,42 @@
 		addButton:function(arr,type='exec'){
 			this.ele.find('.hello-editor-tools').append('<div class="hello-editor-btn"><button data-tools="'+arr+'" data-type="'+type+'"><i class="icon-'+arr+'"></i></button></div>'); 
 		},
-        sync:function(self){
-			this.textarea.is(":visible") ? this.container.html(this.textarea.val()) : this.textarea.val($.trim(this.container.html()));
-        },
+		addMenu:function(tools){
+			var option = this.getMenuList(tools);
+			this.ele.find('button[data-tools="'+tools+'"]').after('<ul class="menu '+tools+'" data-tools="'+tools+'">'+option+'</ul>');
+		},
+		getMenuList:function(tools){
+			var self = this;
+			var option = {
+				FontName:function(tools){
+				   var arr = self.menu[tools],html='';
+				   for(i in arr){
+					  html += '<li class="menu-font" style="font-family:'+arr[i]+';" data-tools="'+tools+'" data-value="'+arr[i]+'">'+arr[i]+'</li>';
+				   }  
+				   return html;
+				},
+				FontSize:function(tools){
+				   var arr = self.menu[tools],html='';
+				   for(i in arr){
+					  html += '<li style="font-family:'+arr[i]+';" data-tools="'+tools+'" data-value="'+arr[i]+'">'+(Number(arr[i])+11)+'px</li>';
+				   }  
+				   return html;
+				},
+				ForeColor:function(tools){
+				   var arr = self.menu[tools],html='';
+				   for(i in arr){
+					  html += '<li class="menu-color" style="background:'+arr[i]+';" data-tools="'+tools+'" data-value="'+arr[i]+'"></li>';
+				   }  
+				   return html;
+				}
+			};
+			return option[tools](tools);
+		},
 		extend:function(self){
 			var extendFunction = {
-				fullscreen:function(){
+				fullscreen:function($self){
 					self.ele.toggleClass('fullscreen');
+					$self.toggleClass('current');
 					if(self.ele.hasClass('fullscreen')){
 						self.ele.removeAttr('style');
 						self.ele.find('.hello-editor-wrap').css({height : self.ele.height() - self.tools.height()});
@@ -92,6 +122,9 @@
 			}
 			return extendFunction;
 		},
+        sync:function(self){
+			this.textarea.is(":visible") ? this.container.html(this.textarea.val()) : this.textarea.val($.trim(this.container.html()));
+        },
         init:function(){
             var self = this;
             this.display();
@@ -104,9 +137,15 @@
 				}else if(type == 'custom'){
 					var extendFunction = self.extend(self);
 					extendFunction[tools]($self);
+				}else if(type == 'menu'){
+					$(this).next().toggleClass('current');
+					$(this).parent().siblings().find('.menu').removeClass('current');
 				}
 			});
-			
+			this.tools.find('.menu li').bind('click',function(){
+				var tools = $(this).data('tools' ), value = $(this).data('value');
+				document.execCommand(tools,false,value);
+			});
 
 			
         }

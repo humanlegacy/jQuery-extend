@@ -10,3 +10,5 @@
 				 规范js代码，统一换行缩进改为Tab
 #v 1.3.0	新增富文本编辑器[jquery.helloeditor.js]
 				引入fontAwesome图标字体
+#v 1.3.1 富文本编辑器			
+#v 1.3.2 富文本编辑器			
