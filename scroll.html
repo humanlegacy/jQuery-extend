@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<title>jquery.helloscroll.js</title>
-<link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
-<script type="text/javascript" src="js/libs/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/libs/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="js/jquery.helloscroll.js"></script>
+<link rel="stylesheet" type="text/css" href="hello-ui/hello-ui.css">
+<script type="text/javascript" src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="hello-ui/jquery.hello-ui.js"></script>
+<script type="text/javascript" src="hello-ui/libs/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="hello-ui/libs/jquery.easing.min.js"></script>
+<script type="text/javascript" src="hello-ui/plugins/jquery.hello-scroll.js"></script>
+<title>jquery.hello-scroll.js</title>
 </head>
 <body>
 <style>
@@ -16,25 +17,24 @@
 </style>
 <script>
 $(function(){
-    $(".article-1").helloScroll({
-			step:15,
-			animate:'easeOutCubic',
-			duration:200,
-			scrollEnd:function(){
-				console.log('end!');
-			}
+	$.hello('scroll',{
+		ele:'.article-1',
+		step:15,
+		animate:'easeOutCubic',
+		duration:200,
+		scrollEnd:function(){
+			console.log('end!');
+		}
 	});
-    $(".article-2").helloScroll({
-			step:5,
-			scrollEnd:function(){
-				console.log('end!');
-			}
+	$.hello('scroll',{
+		ele:'.article-2',
+		step:5
 	});
 });    
 </script>
 
 <div class="title of list">
-    <h2 style="font-family:arial;">jQuery.helloscroll.js</h2>
+    <h2 style="font-family:arial;">jQuery.hello-scroll.js</h2>
 </div>
 
 <div class="hello-scroll article article-1">

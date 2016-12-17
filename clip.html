@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/libs/jQuery-2.2.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.helloclip.js"></script>
-<title>jquery.helloclip.js</title>
+<link rel="stylesheet" type="text/css" href="hello-ui/hello-ui.css">
+<script type="text/javascript" src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="hello-ui/jquery.hello-ui.js"></script>
+<script type="text/javascript" src="hello-ui/plugins/jquery.hello-clip.js"></script>
+<title>jquery.hello-clip.js</title>
 </head>
 <body>
-
 <script>
 $(function(){
-    $(".hello-clip-wrap").helloClip({
-			width:300,
-			height:300,
-			saveFileName : 'demo.png',
-			uploadUrl:"#",
-			uploadType:'get',
-			formChange:function(){
-				alert("上传图片！");
-				$(".hello-clip-wrap").prepend("<img src='css/img/hello-clip.jpg' />");
-				$(".helloClip-path").val("css/img/hello-clip.jpg");
-			}
-	}); 
-	
-	
+	$.hello('clip',{
+		ele:".hello-clip-wrap",
+		width:300,
+		height:300,
+		formChange:function(){
+			alert("上传图片！");
+			$(".hello-clip-wrap").prepend("<img src='img/hello-clip.jpg' />");
+			$(".helloClip-path").val("css/img/hello-clip.jpg");
+		}
+	});
+
 	$(".hello-clip-btn").click(function(){
 		$(".hello-clip-tools-wrap").fadeToggle(100);
 	});
@@ -32,12 +27,12 @@ $(function(){
 </script>
 
 <div class="title of list">
-    <h2 style="font-family:arial;">jQuery.helloclip.js</h2>
+    <h2 style="font-family:arial;">jQuery.hello-clip.js</h2>
 </div>
 <br />
 <div class="hello-clip">
 	<div class="hello-clip-wrap">
-		<img src="css/img/hello-clip.jpg" alt="" />
+		<img src="img/hello-clip.jpg" alt="" />
 	</div>
 	<div class="hello-clip-tools">
 		<a href="javascript:;" class="hello-clip-btn">调整</a> | 

@@ -1,48 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
-<script type="text/javascript" src="js/jquery.helloselect.js"></script>
-<title>jquery.helloselect.js</title>
+<link rel="stylesheet" type="text/css" href="hello-ui/hello-ui.css">
+<script type="text/javascript" src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="hello-ui/jquery.hello-ui.js"></script>
+<script type="text/javascript" src="hello-ui/plugins/jquery.hello-selecter.js"></script>
+<title>jquery.hello-selecter.js</title>
 </head>
 <body>
 <style>ul,li{padding:0;margin:0;list-style:none;}</style>
 <script>
 $(function(){
     
-    $(".select-default-1").helloSelect({
+	$.hello('selecter',{
+		ele:".selecter-default-1",
         city:false,
 		input:"#default-1"
-    });
-    $(".select-default-2").helloSelect({
+	});
+	
+	$.hello('selecter',{
+		ele:".selecter-default-2",
         city:false,
 		input:"#default-2"
-    });	
+	});
 	
-    $(".city").helloSelect({
+	$.hello('selecter',{
+		ele:".city1",
 		city:true,
-		 data: 'js/libs/data.json',
-		input:'#city1'    
-    });  
-    $(".city2").helloSelect({
+		data: 'hello-ui/libs/data.json',
+		input:'#city1' 
+	});
+	
+	$.hello('selecter',{
+		ele:".city2",
 		city:true,
-		 data: 'js/libs/data.json',
-		input:'#city2'
-    });  
+		data: 'hello-ui/libs/data.json',
+		input:'#city2' 
+	});  
     
 })
 </script>
   
 <div class="title of list">
-    <h2 style="font-family:arial;">jQuery.helloselect.js</h2>
+    <h2 style="font-family:arial;">jQuery.hello-selecter.js</h2>
 </div>
 <br /> 
 
 <p>全国三级联动</p>
-<div class="hello-select city"></div>
-<div class="hello-select city2"></div>
+<div class="hello-selecter city1"></div>
+<div class="hello-selecter city2"></div>
 <p>
     <input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="city1" placeholder="将在这里显示结果">
     <input style="border:1px solid #eee;border-radius:3px;padding:3px;" type="text" id="city2" placeholder="将在这里显示结果">
@@ -51,7 +58,7 @@ $(function(){
 <br />
 <br />
 <p style="font-size:13px;color:#555;line-height:25px;">普通下拉菜单</p>
-<div class="hello-select select-default-1" >
+<div class="hello-selecter selecter-default-1" >
       <ul class="container">
            <li>Hello Widget前端组件库</li>
            <li>jquery.helloselect.js插件</li>
@@ -59,7 +66,7 @@ $(function(){
            <li>玩命显示中...</li>
       </ul>
 </div>						
-<div class="hello-select select-default-2" >
+<div class="hello-selecter selecter-default-2" >
   <ul class="container">
 	   <li>Hello HDC</li>
 	   <li>Hello Widget前端组件库</li>

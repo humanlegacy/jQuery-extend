@@ -6,9 +6,8 @@
 #v 1.0.1	无缝轮播悬停问题
 #v 1.1.0	新增图片裁剪插件[jquery.helloclip.js]
 #v 1.2.0	新增自定义滚动条插件[jquery.helloscroll.js]
-				 添加lib目录
-				 规范js代码，统一换行缩进改为Tab
-#v 1.3.0	新增富文本编辑器[jquery.helloeditor.js]
-				引入fontAwesome图标字体
-#v 1.3.1 富文本编辑器			
-#v 1.3.2 富文本编辑器			
+				添加lib目录
+				规范js代码，统一换行缩进改为Tab
+#v 2.0.0	全局对象hello
+				$.hello(plugName,param);  //封装插件
+				$.helloPlug.prototype.autoComplete = function(param){}; //扩展

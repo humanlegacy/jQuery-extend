@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
-<script type="text/javascript" src="js/jquery.hellotabs.js"></script>
-<title>jquery.hellotabs.js</title>
+<link rel="stylesheet" type="text/css" href="hello-ui/hello-ui.css">
+<script type="text/javascript" src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="hello-ui/jquery.hello-ui.js"></script>
+<script type="text/javascript" src="hello-ui/plugins/jquery.hello-tabs.js"></script>
+<title>jquery.hello-tabs.js</title>
 </head>
 <body>
-<style>ul,li{padding:0;margin:0;list-style:none;}</style>
 <script>
 $(function(){
-	$(".hello-tabs-1").helloTabs({
+	$.hello('tabs',{
+		ele:".hello-tabs-1",
 		autoPlay:true,
 		triggerName:['Black','Red','Yellow','White','A long title'],
 		interval:2000,
 		event:'mouseover'	
 	});
-	$(".hello-tabs-2").helloTabs({
+	$.hello('tabs',{
+		ele:".hello-tabs-2",
 		autoPlay:false,
 		triggerName:['Black','Red','Yellow','White','A long title'],
-		event:'click'	
-	});	
+		event:'click'		
+	});
 })
 </script>
   
 <div class="title of list">
-    <h2 style="font-family:arial;">jQuery.hellotabs.js</h2>
+    <h2 style="font-family:arial;">jQuery.hello-tabs.js</h2>
 </div>
  <br />
    

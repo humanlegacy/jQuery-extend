@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<title>jquery.hellodialog.js</title>
-<link rel="stylesheet" type="text/css" href="css/hello.css">
-<script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>  
-<script type="text/javascript" src="js/jquery.hellodialog.js"></script>
+<link rel="stylesheet" type="text/css" href="hello-ui/hello-ui.css">
+<script type="text/javascript" src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script type="text/javascript" src="hello-ui/jquery.hello-ui.js"></script>
+<script type="text/javascript" src="hello-ui/plugins/jquery.hello-dialog.js"></script>
+<title>jquery.hello-dialog.js</title>
 </head>
 <body>
 
@@ -13,50 +14,55 @@
 $(function(){
 
 	$(".hello-msg").click(function(){
-			Hello.msg({
-				width:320,
-				title:'Hello.msg',
-				msg:'Hello.msg玩命提示中....点击确定关闭提示窗口'
-			});
+		$.hello('dialog',{
+			type:'msg',
+			title:'dialog-msg',
+			width:320,
+			msg:'Hello.msg玩命提示中....点击确定关闭提示窗口'
+		});
 	});
 	
 	$(".hello-confirm").click(function(){
-			Hello.confirm({
-				width:320,
-				title:'Hello.confirm',
-				msg:'Hello.confirm....点击按钮执行回调函数',
-				confirmFn:function(){
-					alert("点击确定");
-				},
-				cancelFn:function(){
-					alert("点击取消");
-				}
-			});
+		$.hello('dialog',{
+			type:'confirm',
+			title:'dialog-confirm',
+			width:320,
+			msg:'Hello.confirm....点击按钮执行回调函数',
+			confirmFn:function(){
+				alert("点击确定");
+			},
+			cancelFn:function(){
+				alert("点击取消");
+			}
+		});
 	});
 		
 	$(".hello-load").click(function(){
-			Hello.load({
-				width:620,
-				title:'Hello.load()',
-				firmBtn:'关闭',
-				url:'dialog_load.html',
-				async:false
-			});
+		$.hello('dialog',{
+			type:'loader',
+			title:'dialog-loader',
+			width:520,
+			firmBtn:'关闭',
+			url:'dialog_load.html',
+			async:false
+		});
 	});	
 	
 	$(".hello-page").click(function(){
-			Hello.page({
-				width:820,
-				height:600,
-				url:'http://www.baidu.com'
-			});
+		$.hello('dialog',{
+			type:'page',
+			title:'dialog-page',
+			width:520,
+			height:600,
+			url:'http://www.baidu.com'
+		});
 	});	
 		
 })
 </script>
 
 <div class="title of list">
-    <h2 style="font-family:arial;">jQuery.hellodialog.js</h2>
+    <h2 style="font-family:arial;">jQuery.hello-dialog.js</h2>
 </div>
 <br />
 <a href="jacascript:" class="dialogBtns hello-msg">hello-msg</a>
