@@ -16,7 +16,7 @@
 	$.extend({
 		hello:function(plugName,param,param2){
 			var plugin = $.extend({},hello,$.helloPlug.prototype,deBug);	
-		    return plugin[plugName](param,param2);
+			return plugin[plugName](param,param2);
 		}
 	});
 	window.hello =  {
@@ -52,7 +52,7 @@
 				val:tempVal
 			}
 		},
-		removeByVal:function(param,param2){
+		removeOneVal:function(param,param2){
 			for(i in param) {
 				if(param[i] == param2) {
 				  param.splice(i, 1);
@@ -64,7 +64,7 @@
 		randomArray:function(param){
 			return param[Math.floor(Math.random() * param.length)];
 		},
-		epArray:function(param){
+		mOfArray:function(param){
 			var temp = {};
 			return temp = {
 				max : Math.max.apply(Math, param), 
@@ -79,7 +79,9 @@
 			if(rdmStr.length < param) rdmStr  += Math.random().toString(36).substr(2);
 			return  rdmStr.substr(0, param);  
 		},
-		
+		randomColor:function(){
+			return "#"+((Math.random()*(0xFFFFFF).toString(10)).toString(16)).slice(-6); 
+		}
 	};	
 	
 })(jQuery,window,document);
@@ -87,7 +89,7 @@
 
 $(function(){	
 	//加载插件 传递字符串与数组
-	$.hello('getScript',['accordion','tabs']);
+	//$.hello('getScript',['accordion']);
 	
 	//获取已加载扩展方法
 	$.hello('getPlugName'); 	
@@ -108,12 +110,15 @@ $(function(){
 	//生成指定范围内的随机数
 	var random = $.hello('random',[1,5]);	
 	
+	//数组中的最大值和最小值
+	var mOfArray = $.hello('mOfArray',[11,5,8,0,-3,7]);	
+	
+	//删除数组中指定元素
+	var na = $.hello('removeOneVal',["red", "blue", "yellow", "green"],'green'); 
+	
 	//随机生成指定长度的数字字母组合
 	var randomStr = $.hello('randomStr',5);	
 	
-	//数组中的最大值和最小值
-	var epArray = $.hello('epArray',[11,5,8,0,-3,7]);	
-	
-	//删除数组中指定元素
-	var na = $.hello('removeByVal',["red", "blue", "yellow", "green"],'green'); 
+	//随机色
+	var color = $.hello('randomColor');
 });
