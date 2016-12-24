@@ -13,3 +13,4 @@
 				$.helloPlug.prototype.autoComplete = function(param){}; //扩展
 #v 2.1.1	扩展工具：生成随机色
 				扩展插件：基于canvas纯前端实现验证码验证
+#v 2.2.0	扩展插件：小提示 tip
