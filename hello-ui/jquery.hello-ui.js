@@ -20,16 +20,17 @@
 		}
 	});
 	window.hello =  {
-		getScript:function(param){
+		getPlug:function(param){
+            $.hello('getStyle');
 			var pathName = window.document.location.pathname,
 				   path = pathName.substring(0, pathName.substr(1).indexOf('/') + 2);
 			if(typeof(param) === 'string'){
-				plugPath = path + 'hello-ui/plugins/jquery.hello-'+param+'.js';	
+				var plugPath = path + 'hello-ui/plugins/jquery.hello-'+param+'.js';	
 				$.ajax({url: plugPath,async: false,dataType: "script"});
 			}
 			if($.isArray(param)){
 				for(i in param){
-					plugPath = path + 'hello-ui/plugins/jquery.hello-'+param[i]+'.js';	
+					var plugPath = path + 'hello-ui/plugins/jquery.hello-'+param[i]+'.js';	
 					$.ajax({url: plugPath,async: false,dataType: "script"});	
 				}
 			}
@@ -85,40 +86,3 @@
 	};	
 	
 })(jQuery,window,document);
-
-
-$(function(){	
-	//加载插件 传递字符串与数组
-	//$.hello('getScript',['accordion']);
-	
-	//获取已加载扩展方法
-	$.hello('getPlugName'); 	
-	//获取Hello-ui的内置方法
-	$.hello('tools'); 	
-	
-	 //获取鼠标在元素中的位置
-	 $(".div1").click(function(){
-		 var pos = $.hello('mousePos',$(this));
-	 });
-	 
-	//对象转数组
-	var changeToArray  = $.hello('changeToArray',{name:'Peter',sex:'boy',age:32});    
-	
-	//随机获取数组中某一项
-	var randomArray  = $.hello('randomArray',changeToArray.val);  
-	
-	//生成指定范围内的随机数
-	var random = $.hello('random',[1,5]);	
-	
-	//数组中的最大值和最小值
-	var mOfArray = $.hello('mOfArray',[11,5,8,0,-3,7]);	
-	
-	//删除数组中指定元素
-	var na = $.hello('removeOneVal',["red", "blue", "yellow", "green"],'green'); 
-	
-	//随机生成指定长度的数字字母组合
-	var randomStr = $.hello('randomStr',5);	
-	
-	//随机色
-	var color = $.hello('randomColor');
-});

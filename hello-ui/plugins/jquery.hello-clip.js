@@ -9,7 +9,7 @@
 			uploadType: 'post',
 			formChange: function() {
 				alert("上传图片！");
-				$(".hello-clip-wrap").prepend("<img src='img/hello-clip.jpg' />"); //插入带裁剪图片元素
+				$(".hello-clip-wrap").prepend("<img src='img/hello-clip.jpg' />"); //插入等待裁剪图片元素
 				$(".helloClip-path").val("hello-ui/img/hello-clip.jpg"); //上传后返回的服务器图片地址，等待裁剪
 			}
 		},

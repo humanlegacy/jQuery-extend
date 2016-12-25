@@ -2,69 +2,310 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="reset.css" />
+<link rel="stylesheet" href="style/reset.css" />
+<link rel="stylesheet" href="style/index.css" />
 <title>Hello - ui 前端组件</title>
 </head>
-<style>
-h1{padding: 20px 0 0 20px;}
-ul{padding:20px;overflow: hidden;}
-ul li{line-height: 2;border-top: 1px dotted #e0e0e0;padding: 10px 0;float: left;width: 33.333%;}
-ul a{font-size: 15px;}
-ul span{font-size: 12px;}
-</style>
-<body>
-  <h1>Hello - ui 前端组件</h1>
-  <ul>
-      <li>
-          <p><a href="accordion.html" target="_blank">手风琴</a></p>
-          <span>一个优雅的折叠伸缩插件，支持回调函数</span>
-      </li>
-      <li>
-          <p><a href="carousel.html" target="_blank">无缝轮播</a></p>
-          <span>无缝轮播，全屏，自定义尺寸，自动轮播，支持回调函数</span>
-      </li>
-      <li>
-          <p><a href="dialog.html" target="_blank">弹窗</a></p>
-          <span>支持拖拽，Ajax,自定义宽度，回调函数</span>
-      </li>
-      <li>
-          <p><a href="tip.html" target="_blank">小提示</a></p>
-          <span>支持不同场景的小提示，支持回调函数</span>
-      </li>
-      <li>
-          <p><a href="selecter.html" target="_blank">下拉</a></p>
-          <span>支持全国三级联动</span>
-      </li>
-      <li>
-          <p><a href="step.html" target="_blank">步骤提示</a></p>
-          <span>提示用户当前的操作页面</span>
-      </li>
-      <li>
-          <p><a href="tabs.html" target="_blank">选项卡</a></p>
-          <span>设置时间自动轮播，多事件支持</span>
-      </li>
-      <li>
-          <p><a href="zoom.html" target="_blank">放大镜</a></p>
-          <span>拟物放大镜</span>
-      </li>
-      <li>
-          <p><a href="autoComplete.html" target="_blank">自动完成</a></p>
-          <span>填写表单时的提示输入,选择项目后支持回调函数</span>
-      </li>
-      <li>
-          <p><a href="clip.html" target="_blank">纯前端裁剪图片</a></p>
-          <span>基于canvas，可设定裁剪任意尺寸</span>
-      </li>
-      <li>
-          <p><a href="captcha.html" target="_blank">纯前端实现验证码</a></p>
-          <span>基于canvas，实现验证码功能</span>
-      </li>
-      <li>
-          <p><a href="scroll.html" target="_blank">简约滚动条</a></p>
-          <span>一个自定义滚动条，带回调函数</span>
-      </li>     
-  </ul>  
-    
-    
+<body class="current">
+<div class="hello-ui-welcome">
+      <div class="table">
+          <div class="table-cell">
+              <h1>Hello-ui</h1>
+              <p class="trans">jQuery.hello-ui.js 前端组件库</p>
+              <button class="get-more">了解更多 >></button>
+          </div>
+      </div>
+</div>
+        
+<div class="container clear">
+    <div class="hello-ui-content fl">
+        <div class="item" id="exp">
+            <h2>概况</h2>
+            <p>部分组件依赖于其他组件库，具体请在实例页面查看页面源代码。</p>
+<pre>
+/*目录结构*/
+hello-ui
+    ├ libs       //组件依赖库
+    ├ plugins       //插件扩展目录
+    ├ hello-ui.css       //组件样式文件
+    ├ jquery.hello-ui.js       //组件主程序,所有内置方法与插件可通过此程序调用
+</pre>
+        </div>
+        
+        <div class="item" id="function">
+            <h2>内置方法</h2>
+            <p>为日常所需提供内置方法</p>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <thead>
+                   <tr>
+                       <td>内置方法</td>
+                       <td>使用说明</td>
+                   </tr>
+               </thead>
+                <tbody>
+                    <tr><td>$.hello('getPlug',['accordion']); </td><td>加载插件 传递字符串或数组</td></tr>
+                    <tr><td>$.hello('getPlugName');</td><td>获取已加载的扩展方法</td></tr>
+                    <tr><td>$.hello('tools');</td><td>获取Hello-ui所有内置方法</td></tr>
+                    <tr><td>var changeToArray  =$.hello('changeToArray',{name:'Peter',sex:'boy',age:32});</td><td>对象转数组</td></tr>
+                    <tr><td>var randomArray  = $.hello('randomArray',["red", "blue", "yellow", "green"]);</td><td>随机获取数组中某一项</td></tr>
+                    <tr><td>var random = $.hello('random',[1,5]);</td><td>生成指定范围内的随机数</td></tr>
+                    <tr><td>var mOfArray = $.hello('mOfArray',[11,5,8,0,-3,7]);</td><td>数组中的最大值和最小值</td></tr>
+                    <tr><td>var removeOneVal = $.hello('removeOneVal',["red", "blue", "yellow", "green"],'green');</td><td>删除数组中指定元素</td></tr>
+                    <tr><td>var randomStr = $.hello('randomStr',5);	</td><td>随机生成指定长度的数字字母组合</td></tr>
+                    <tr><td>var color = $.hello('randomColor'); </td><td>随机色</td></tr>
+                    <tr><td>
+                            $("button").click(function(){
+                                 var pos = $.hello('mousePos',$(this));
+                             });
+                    </td><td>获取鼠标在元素中的位置</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="item" id="extend">
+            <h2>扩展</h2>
+            <p>在hello-ui基础上自定义扩展插件</p>
+<pre>
+;(function($) {
+    $.helloPlug.prototype.getColor = function(param){
+        //这里是你的代码···
+    }
+})(jQuery);   
+</pre>
+<p>$.helloPlug.prototype.getColor = function(param){   中  </p>                
+<p>getColor 为你的插件名称</p>
+<p>param 为传递的参数</p>   
+<pre>
+//调用您自定义扩展插件
+$.hello('getColor',param);
+</pre>
+<p>就是这么简单。</p>                             
+        </div>
+        
+        <div class="item" id="super">
+           <h2>高级使用</h2>
+           <p>在您的页面中引入hello-ui.css 与 jquery.hello-ui.js 即可随意调用组件中的插件与内置方法</p>
+<pre>
+$.hello('getPlug',['accordion']);    
+//调用accordion插件，传递字符串与数组
+</pre>           
+        </div>
+         <div id="accordion" class="item">
+             <h3>手风琴</h3>
+             <p>一个优雅的折叠伸缩插件，支持回调函数</p>
+ <pre>
+$.hello('accordion',{
+    event:'click',    // 事件
+    speed: 200,    //响应速度
+    callBack: function() {}     //执行后的回调函数
+});
+ </pre>
+         </div>
+         <div id="carousel" class="item">
+             <h3>无缝轮播</h3>
+             <p>无缝轮播，全屏，自定义尺寸，自动轮播，支持回调函数</p>
+ <pre>
+$.hello('carousel',{
+    ele:'.hello-carousel',    //绑定元素
+    size: 'fullScreen',  //可选参数[700,350]指定宽高或全屏展示
+    startIndex: 0,    //默认展示的轮播索引值
+    horVertical: true,    //中间内容是否水平垂直居中
+    arrow: true,    //是否显示左右导航箭头
+    arrowText: ["Prev", "Next"],    //左右导航箭头的显示文本
+    dots: true,    //是否显示焦点
+    autoPlay: false,    //是否自动轮播
+    interval: 3000,    //自动轮播时间间隔，毫秒
+    speed:500,    //轮播切换的过渡时间
+    onLeave: function(index) {},    //轮播离开时的回调函数
+    onEnter: function(index) {}     //轮播进入时的回调函数
+});
+ </pre>
+         </div>
+         <div id="dialog" class="item">
+             <h3>弹窗</h3>
+             <p>支持拖拽，Ajax,自定义宽度，回调函数</p>
+ <pre>
+$.hello('accordion',{
+    type:'msg',    //弹窗场景，可选参数msg，confirm，loader，page
+    title:'hello-ui dialog',    //弹窗标题
+    width:500,    //弹窗宽度
+    height:500,    //弹窗高度
+    draggable:true,    //是否可拖拽
+    msg:'老司机！',    //场景为msg时可用，显示提示消息
+    url:'http://www.baidu.com',     //场景为loader或page可用,加载页面内容到窗体
+    async:false,    //场景为loader或page可用,同步或异步
+    method:'post',    //场景为loader或page可用,请求类型
+    loadBeforeText:'内容加载中，请稍后...',    //场景为loader或page可用,请求前的等待提示
+    cancelBtnTxt:'关闭',    //取消按钮文本
+    confirmBtnTxt:'确定',    //确定按钮文本
+    confirmFn:function(){},    //点击确认后的回调函数    
+    cancelFn:function(){}     //点击取消后的回调函数
+});
+ </pre>
+         </div>
+         <div id="tip" class="item">
+             <h3>小提示</h3>
+             <p>支持多场景，多位置展示，可执行回调函数的桌面提醒</p>
+<pre>
+$.hello('accordion',{        
+    width:230,    //提示宽度
+    position:'center',    //在不同位置展示，可选参数leftTop，leftBottom，rightTop，rightBottom，center
+    type:'success',    //展示不同场景，default，success，error，warning，info
+    msg:'msg!',    //提示的消息内容
+    keep:3,    //提示持续时间，秒
+    callBack: function() {}    //提示执行完成后的回调函数
+});			
+</pre>             
+         </div>
+         <div id="selecter" class="item">
+             <h3>下拉菜单</h3>
+             <p>自定义下拉菜单，整合全国三级联动</p>
+<pre>
+$.hello('selecter',{
+    ele:'.selecter',    //绑定元素
+    title: '请选择',    //下拉菜单标题
+    city: false,    //是否执行全国三级联动
+    split: '-',    //城市分隔符号
+    data: 'libs/data.json',    //城市数据源
+    input: '#id'    //将选中的内容放入指定容器中
+});
+</pre>             
+         </div>
+         <div id="step" class="item">
+             <h3>流程提醒</h3>
+             <p>提示用户当前的操作页面</p>
+<pre>
+$.hello('step',{
+    ele:'.step',    //绑定元素
+    title: ['1.填写用户名', '2.接收邮件', '3.设置新密码', '4.完成'],    //流程提示文本
+    index: 2    //默认选中选中
+});
+</pre>             
+         </div>
+         <div id="tabs" class="item">
+             <h3>选项卡</h3>
+             <p>支持自动轮播，多事件触发</p>
+<pre>
+$.hello('tabs',{
+    ele:'.tabs',    //绑定元素
+    triggerName: ['Black', 'Red', 'Yellow', 'White', 'Green'],    //选项卡触发元素
+    autoPlay: false,    //是否自动切换
+    interval: 1000,    //自动切换时间间隔
+    event: 'mouseover'    //触发事件，可选参数mouseover，click
+});
+</pre>       
+         </div>
+         <div id="zoom" class="item">
+             <h3>拟物放大镜</h3>
+             <p>一款优雅的拟物放大镜</p>
+<pre>
+$.hello('zoom',{
+    ele:'.zoom',    //绑定元素
+    container: [450, 300],    //容器大小
+    glasses: [170, 170],    //镜片大小
+    scale: 2    //放大比例
+});
+</pre>  
+         </div>
+         <div id="autoComplete" class="item">
+             <h3>自动完成</h3>
+             <p>填写表单时的提示输入,支持回调函数，多事件触发</p>
+<pre>
+$.hello('autoComplete',{
+    ele:'.autoComplete',    //绑定元素
+    data: [],    //数据源，其中可以是多个键值对对象
+    autoFocus: true,    //是否自动触发或输入时触发下拉
+    menu: '.demo-menu',     //为其绑定一个指定下拉,程序自动添加标签
+    callBack: function(data) {}     //选择后的回调，data为一个对象，可获得点击元素的文本和索引
+});
+</pre>    
+         </div>
+         <div id="clip" class="item">
+             <h3>纯前端裁剪图片</h3>
+             <p>基于canvas，可设定裁剪任意尺寸图片</p>
+<pre>
+$.hello('clip',{
+    ele:'.clip',    //绑定元素
+    width: 150,    //裁剪图片的宽度
+    height: 150,    //裁剪图片的高度
+    saveFileName: 'hello-clip.png',    //保存的文件名
+    uploadUrl: "upload.php",    //图片上传服务器的地址
+    uploadType: 'post',    //上传类型
+    formChange: function() {    //上传完成后返回前端页面进行处理
+        alert("上传图片中");
+        $(".hello-clip-wrap").prepend("&lt;img src='img/hello-clip.jpg' /&lg;"); //插入等待裁剪图片元素
+        $(".helloClip-path").val("hello-ui/img/hello-clip.jpg"); //上传后返回的服务器图片地址，等待裁剪
+    }
+});
+</pre> 
+         </div>
+         <div id="captcha" class="item">
+             <h3>验证码</h3>
+             <p>基于canvas，实现验证码功能</p>
+<pre>
+$.hello('clip',{
+    ele:'.hello-captcha',    //绑定元素
+    width:70,    //验证码宽度
+    height: 25,    //验证码高度
+    codeSize:4,    //验证码随机生成的长度,由数字字母组成
+    fontColor:'random',     //验证码颜色随机或指定颜色
+    font:'25px arial',    //验证码字体和大小
+    bgLines:[5,8]     //验证码背景混淆的直线数量,5-8之间
+});
+</pre> 
+         </div>
+         <div id="scroll" class="item">
+             <h3>简约滚动条</h3>
+             <p>一个自定义滚动条，带回调函数</p>
+<pre>
+$.hello('clip',{
+    step: 10,    //鼠标滚动一次滚轴时内容滑动的步长
+    animate: null,    //滚动的动画,此时需要引入动画库
+    duration: 200,    //滚动的动画过渡,毫秒
+    barStyle:{},    //滚动条自定义样式
+    scrollEnd: function() {}     //滚动至底部时的回调函数
+});
+</pre> 
+         </div>
+    </div>
+    <ul class="hello-ui-list fr">
+        <li><a href="#exp">概况</a></li>
+        <li><a href="#function">内置方法</a></li>
+        <li><a href="#extend">扩展</a></li>
+        <li><a href="#super">高级使用</a></li>
+        <li class="split"></li>
+        <li><a href="#accordion">手风琴</a><a href="accordion.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#carousel">无缝轮播</a><a href="carousel.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#dialog">弹窗</a><a href="dialog.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#tip">小提示</a><a href="tip.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#selecter">下拉菜单</a><a href="selecter.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#step">流程提醒</a><a href="step.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#tabs">选项卡</a><a href="tabs.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#zoom">拟物放大镜</a><a href="zoom.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#autoComplete">自动完成</a><a href="autoComplete.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#clip">纯前端裁剪图片</a><a href="clip.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#captcha">纯前端实现验证码</a><a href="captcha.html" class="link" target="_blank">查看实例</a></li>
+        <li><a href="#scroll">简约滚动条</a><a href="scroll.html" class="link" target="_blank">查看实例</a></li>
+    </ul>
+</div>
+
+
+<script src="hello-ui/libs/jQuery-2.2.3.min.js"></script>
+<script>
+$(function(){
+    $(".get-more").click(function(){
+        $(".hello-ui-welcome").addClass("current");
+        $("body").removeClass("current");
+    });
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        if(scrollTop >= 70){
+            $(".hello-ui-list").addClass("current");
+        }else{
+            $(".hello-ui-list").removeClass("current");
+        }
+    });
+});    
+</script>    
 </body>
 </html>
