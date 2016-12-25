@@ -2,6 +2,7 @@
 	if(window.hello){
 		return;
 	}
+	var localPath = $("script").last().attr("src"),Path = localPath.substr (0,(localPath.indexOf('.')-6));
 	var deBug = {
 		getPlugName:function(){
 			for(plugName in $.helloPlug.prototype){
@@ -21,19 +22,20 @@
 	});
 	window.hello =  {
 		getPlug:function(param){
-            $.hello('getStyle');
-			var pathName = window.document.location.pathname,
-				   path = pathName.substring(0, pathName.substr(1).indexOf('/') + 2);
 			if(typeof(param) === 'string'){
-				var plugPath = path + 'hello-ui/plugins/jquery.hello-'+param+'.js';	
+				var path = $.hello('path');
+				var plugPath = path + '/plugins/jquery.hello-'+param+'.js';	
 				$.ajax({url: plugPath,async: false,dataType: "script"});
 			}
 			if($.isArray(param)){
 				for(i in param){
-					var plugPath = path + 'hello-ui/plugins/jquery.hello-'+param[i]+'.js';	
+					var plugPath = path + '/plugins/jquery.hello-'+param[i]+'.js';	
 					$.ajax({url: plugPath,async: false,dataType: "script"});	
 				}
 			}
+		},
+		path:function(){
+			return Path;
 		},
 		mousePos:function(param){
 			var x = $(param).offset().left , y = $(param).offset().top,e = window.event,mouse = {};
