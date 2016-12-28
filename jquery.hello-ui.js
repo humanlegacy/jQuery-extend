@@ -11,6 +11,9 @@
 		},
 		tools:function(){
 			console.log(hello);
+		},
+		localPath:function(){
+			return localPath;
 		}
 	}
 	$.helloPlug = new Function();
@@ -55,7 +58,7 @@
 				val:tempVal
 			}
 		},
-		removeOneVal:function(param,param2){
+		delOneVal:function(param,param2){
 			for(i in param) {
 				if(param[i] == param2) {
 				  param.splice(i, 1);
@@ -84,7 +87,46 @@
 		},
 		randomColor:function(){
 			return "#"+((Math.random()*(0xFFFFFF).toString(10)).toString(16)).slice(-6); 
+		},
+		now:function(param){
+			var D=new Date(),
+				item = {
+					"Y": D.getFullYear(),
+					"M": D.getMonth() + 1,
+					"D": D.getDate(),
+					"h": D.getHours(),
+					"m": D.getMinutes(),
+					"s": D.getSeconds(),
+					"d": new Date(2016,12,0).getDate(),
+					"Q": Math.floor((D.getMonth() + 3) / 3), 
+					"S": D.getMilliseconds(), 
+					"W":"日一二三四五六".charAt(D.getDay()), 
+					"T":D.getTime()
+				};
+			for (var k in item){
+				new RegExp("(" + k + ")").test(param) ? param = param.replace(RegExp.$1, item[k]) : null;
+			}
+			return param;
+		},
+		isLeapYear:function (param) {
+			return (param % 400 == 0) || (param % 4 == 0 && param % 100 != 0);
+		},
+		backToTop:function(param){
+			var defaults = {speed:300,onLive:true,onShow:50},
+			        opts = $.extend({},defaults,param);
+			$('body').append('<span id="hello-top"><i class="icon-arrow-up"></i></span>');
+			$('#hello-top').on('click',function(){
+				$('body').animate({scrollTop:0},opts.speed);
+			});
+			if(!opts.onLive){
+				$('#hello-top').hide();
+				$(window).scroll(function(){
+					var scrollTop = $(this).scrollTop();
+					scrollTop >= opts.onShow ? $('#hello-top').show() : $('#hello-top').hide();
+				});
+			}
 		}
 	};	
 	
 })(jQuery,window,document);
+

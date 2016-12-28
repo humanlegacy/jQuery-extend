@@ -16,6 +16,10 @@ h6{font-size: 12px;}
 		url("libs/fontAwesome/font/fontawesome-webfont.svgz#FontAwesomeRegular") format("svg"), 
 		url("libs/fontAwesome/font/fontawesome-webfont.svg#FontAwesomeRegular") format("svg");
 }
+/*返回顶部按钮*/
+#hello-top{position:fixed;width:35px;height:35px;text-align:center;line-height:35px;display:block;cursor:pointer;bottom:50px;right:50px;border: 1px solid #bbb;box-shadow: 0 0 10px rgba(0,0,0,0.25);background: #fff;}
+#hello-top i{color:#aaa;}
+#hello-top:hover i{color:#555;}
 /*可轮播选项卡*/						
 .hello-tabs{background: #fff;width:600px;border:1px solid #ddd;}
 .hello-tabs ul,.hello-tabs li{padding:0;margin:0;list-style:none;}
