@@ -25,3 +25,4 @@ v 2.3.0  扩展内置方法
 				 $.hello('isLeapYear'); 判断指定某年是否为闰年
 v 2.3.1  提供压缩版本				 
 v 2.3.2  优化Hello-clip 图片转base64后执行裁剪				 
+v 2.3.3  优化Hello-scroll 窗口改变大小时的响应				 

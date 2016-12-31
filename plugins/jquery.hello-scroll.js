@@ -1,4 +1,4 @@
-; (function($) {
+; (function($,document) {
 	$.helloPlug.prototype.scroll = function(param){
 		var defaults = {
 			step: 10,
@@ -18,38 +18,54 @@
 		moveStep = 0,
 		num = 1,
 		maxTop = 0;
-
-		function display() {
-			$this.wrapInner('<div class="hello-scroll-wrap"></div>');
-			$wrap = $this.find(".hello-scroll-wrap");
-			$wrap.wrapInner('<div class="hello-scroll-content"></div>');
-			$content = $this.find(".hello-scroll-content");
+		function size(){
 			$wrap.css({
 				width : $this.width(),
 				height : $this.height()
 			});
 			if ($content.height() > $wrap.height()) {
-				$wrap.append('<span class="hello-scroll-bar"></span>');
-				$bar = $this.find(".hello-scroll-bar");
+				if($(".hello-scroll-bar").length==0){
+					$wrap.append('<span class="hello-scroll-bar"></span>');
+					$bar = $this.find(".hello-scroll-bar");
+				}
 				$bar.css($.extend(opts.barStyle,{'height': $this.height() * $this.height() / $content.height()}));
+				maxTop = $wrap.height() - $bar.height();
+				scroll();
+				mousewheel();
+			}else{
+				if($(".hello-scroll-bar").length>0){
+					$bar.remove();
+				}
 			}
-			maxTop = $wrap.height() - $bar.height();
+		}
+		
+		function display() {
+			$this.wrapInner('<div class="hello-scroll-wrap"></div>');
+			$wrap = $this.find(".hello-scroll-wrap");
+			$wrap.wrapInner('<div class="hello-scroll-content"></div>');
+			$content = $this.find(".hello-scroll-content");
+			size();
+			$(window).resize(function(){
+				size();
+				$bar.css({top: 0});
+				$content.css({top: 0});
+			});
 		}
 		function scroll() {
-			$bar.on("mousedown",function(e) {
-				var $this_ = $(this),mdPos = e.clientY - $(this).offset().top;
-				$this.on('mousemove',function(e) {
-					$(this).addClass('no-select');
+			$(document).on("mousedown.scroll",$bar,function(e) {
+				var $this_ = $(this),mdPos = e.clientY - $bar.offset().top;
+				$this.on('mousemove.scroll',function(e) {
+					$wrap.addClass('no-select');
 					activeTop = e.clientY - mdPos - $wrap.offset().top;
 					if (activeTop < 0) {
-						$this_.css({top: 0});
+						$bar.css({top: 0});
 						$content.css({top: 0});
 					} else if (activeTop > maxTop) {
-						$this_.css({top: maxTop});
+						$bar.css({top: maxTop});
 						$content.css({top: -maxTop * $content.height() / $this.height()});
 						callBack();
 					} else {
-						$this_.css({top: activeTop});
+						$bar.css({top: activeTop});
 						if (!opts.animate) {
 							$content.css({top: -activeTop * $content.height() / $this.height()});
 						} else {
@@ -57,8 +73,9 @@
 						}
 					}
 				});
-				$this.on('mouseup',function() {
-					$(this).off('mousemove').removeClass('no-select');
+				$('body').on('mouseup.scroll',function() {
+					$this.off('mousemove.scroll');
+					$wrap.removeClass('no-select');
 					num = Math.ceil(parseInt($bar.css('top')) / moveStep);
 				});
 			});
@@ -105,7 +122,6 @@
 			}
 		}
 		display();
-		scroll();
-		mousewheel();
+
 	}
-})(jQuery);
+})(jQuery,document);
