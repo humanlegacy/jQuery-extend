@@ -1,5 +1,5 @@
 /*
-* Hello-ui v2.3.1 (https://github.com/749264345/hello-ui)
+* Hello-ui v2.3.5 (https://github.com/749264345/hello-ui)
 * Copyright 2015-2016 Jnst.
 * E-mail : 749264345@qq.com
 * http://www.hello-ui.com
@@ -24,6 +24,7 @@ v 2.3.0  扩展内置方法
 				 $.hello('backToTop');  一键调用回到顶部
 				 $.hello('isLeapYear'); 判断指定某年是否为闰年
 v 2.3.1  提供压缩版本				 
-v 2.3.2  优化Hello-clip 图片转base64后执行裁剪				 
-v 2.3.3  优化Hello-scroll 窗口改变大小时的响应				 
-v 2.3.4  扩展Hello-button插件				 
+v 2.3.2  优化hello-clip 图片转base64后执行裁剪				 
+v 2.3.3  优化hello-scroll 窗口改变大小时的响应				 
+v 2.3.4  扩展hello-button插件				 
+v 2.3.5  修复hello-scroll 多个滚动条生成的问题	 

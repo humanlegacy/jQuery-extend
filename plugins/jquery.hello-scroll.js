@@ -24,7 +24,7 @@
 				height : $this.height()
 			});
 			if ($content.height() > $wrap.height()) {
-				if($(".hello-scroll-bar").length==0){
+				if($wrap.find(".hello-scroll-bar").length==0){
 					$wrap.append('<span class="hello-scroll-bar"></span>');
 					$bar = $this.find(".hello-scroll-bar");
 				}

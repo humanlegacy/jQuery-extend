@@ -1,5 +1,5 @@
 /*!
- * Hello-ui v2.3.0 (https://github.com/749264345/hello-ui)
+ * Hello-ui v2.3.5 (https://github.com/749264345/hello-ui)
  * Copyright 2015-2016 Jnst.
  */
 ;(function($,window,document){
