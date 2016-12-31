@@ -1,20 +1,14 @@
 ; (function($, window, undefined) {
 	$.helloPlug.prototype.clip = function(param){
 		var defaults = {
-			ele:'.demo',
+			ele:'.hello-clip',
 			width: 150,
 			height: 150,
 			saveFileName: $.hello('randomStr',5) + '.png',
-			uploadUrl: "upload.php",
-			uploadType: 'post',
-			formChange: function() {
-				alert("上传图片！");
-				$(".hello-clip-wrap").prepend("<img src='img/hello-clip.jpg' />"); //插入等待裁剪图片元素
-				$(".helloClip-path").val("hello-ui/img/hello-clip.jpg"); //上传后返回的服务器图片地址，等待裁剪
-			}
 		},
 		opts = $.extend({},defaults, param),
 		$this = $(opts.ele),
+		$img = $this.find('img'),
 		imgLeft = 0,
 		imgTop = 0,
 		imgWidth = 0,
@@ -23,34 +17,29 @@
 		canvasID = "hello-clip-" + $.hello('randomStr',5);
 		
 		function display() {
-			var html = '<form action="' + opts.uploadUrl + '" enctype="multipart/form-data" method="' + opts.uploadType + '">' + '<span>点击上传图片</span>' + '<input type="file" name="helloClipPic" class="helloClipPic" />' + '</form><canvas id="' + canvasID + '"></canvas>' + '<input type="hidden" name="helloClip-path" class="helloClip-path" value="img/hello-clip.jpg"/>';
+			var html = '<span>点击上传图片</span>' + '<input type="file" name="helloClipPic" class="helloClipPic" />' + 
+			'<canvas id="' + canvasID + '"></canvas>' + 
+			'<input type="hidden" value="" name="helloClip-path" class="helloClip-path"/>';
 			$this.css({
 				"width": opts.width,
 				"height": opts.height,
 				"line-height": opts.height + 'px'
 			}).append(html);
 		}
-		function loadImg() {
-			$this.find('img').load(function() {
-				$(this).css({
-					left: -($(this).width() - opts.width) / 2,
-					top: -($(this).height() - opts.height) / 2
-				});
-				imgLeft = -($this.find('img').width() - opts.width) / 2;
-				imgTop = -($this.find('img').height() - opts.height) / 2;
-				imgWidth = $this.find('img').width();
-				imgHeight = $this.find('img').height();
-				$this.find("form").hide();
-				move();
-				scale();
+		function size() {
+			$img.css({
+				left: -(imgWidth - opts.width) / 2,
+				top: -(imgHeight - opts.height) / 2
 			});
+			imgLeft = -(imgWidth - opts.width) / 2;
+			imgTop = -(imgHeight - opts.height) / 2;
 		}
 		function sync() {
-			imgLeft = parseInt($this.find('img').css("left"));
-			imgTop = parseInt($this.find('img').css("top"));
+			imgLeft = parseInt($img.css("left"));
+			imgTop = parseInt($img.css("top"));
 		}
 		function move() {
-			$this.find('img').on("mousedown",function(e) {
+			$img.on("mousedown",function(e) {
 				e.preventDefault();
 				var downLeft = e.clientX - $this.offset().left,
 				downTop = e.clientY - $this.offset().top;
@@ -68,9 +57,9 @@
 		}
 		function scale() {
 			var scale = $(".hello-clip-scale"),
-			bar = $(".hello-clip-scale-bar"),
-			preLeft = 0,
-			preTop = 0;
+					bar = $(".hello-clip-scale-bar"),
+					preLeft = 0,
+					preTop = 0;
 			bar.css({
 				left: (scale.width() - bar.width()) / 2
 			});
@@ -93,7 +82,7 @@
 						});
 					}
 					pre = parseInt(bar.css("left")) / ((scale.width() - bar.width()) / 2);
-					$this.find("img").css({
+					$img.css({
 						width: imgWidth * pre,
 						height: imgHeight * pre,
 						left: -(imgWidth * pre - opts.width) / preLeft,
@@ -108,16 +97,30 @@
 		}
 		function deleteImg() {
 			$(".hello-clip-delete").click(function() {
-				$this.find('img').remove();
-				$this.find("form").show();
+				$img.remove();
+				$this.find("input[type=file]").show();
 			});
 		}
 		function formChange() {
 			$(".helloClipPic").change(function() {
-				if (opts.formChange) {
-					opts.formChange();
-					loadImg();
-				}
+					var file = this.files[0];
+					if(window.FileReader) {  
+						var img = new FileReader();  
+						img.onloadend = function(e) {  
+							data = e.target.result;  
+							$this.prepend("<img src='"+data+"' />");
+							$this.find("input[type=file]").hide();
+							$img = $this.find('img');
+							imgWidth = $img.width();
+							imgHeight = $img.height();
+							size();
+							move();
+						};  
+						img.readAsDataURL(file);  
+						
+					}else{
+						alert('您的浏览器版不支持window.FileReader');
+					}  
 			});
 		}
 		function save() {
@@ -128,7 +131,7 @@
 				canvas.height = opts.height;
 
 				var img = new Image();
-				img.src = $(".helloClip-path").val();
+				img.src = $img.attr('src');
 				img.onload = function() {
 					var scalepre = 1 / pre;
 					var scw = imgWidth * scalepre;
@@ -138,7 +141,7 @@
 					ctx.drawImage(img, -scl, -scr, scw, sch, 0, 0, imgWidth, imgHeight);
 					var fileName = opts.saveFileName;
 					var data = document.createElement("a");
-					data.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+					data.href = canvas.toDataURL("image/png");
 					saveFile(data, fileName);
 				};
 			});
@@ -154,9 +157,11 @@
 			link.dispatchEvent(event);
 		}
 		display();
-		loadImg();
+		size();
+		formChange();
+		scale();
 		save();
 		deleteImg();
-		formChange();
+		
 	}
 })(jQuery, window);
