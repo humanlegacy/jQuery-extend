@@ -1,6 +1,7 @@
 /*
 * Hello-ui v2.3.5 (https://github.com/749264345/hello-ui)
-* Copyright 2015-2016 Jnst.
+* Copyright 2015-2017 祝宇(Jnst).
+* From China
 * E-mail : 749264345@qq.com
 * http://www.hello-ui.com
 */
