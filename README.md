@@ -18,14 +18,19 @@ v 2.1.1	扩展工具：生成随机色
 				扩展插件：基于canvas纯前端实现验证码验证
 v 2.2.0	扩展插件：小提示 tip
 v 2.2.1	优化主页面
-v 2.2.2  修复jQuery获取当前文件路径的问题
+v 2.2.2  	修复jQuery获取当前文件路径的问题
 				扩展$.hello('path'); //获取当前文件路径
-v 2.3.0  扩展内置方法
-				 格式化当前时间，年月日-时分秒-毫秒 - 时间戳 - 星期 - 季度
-				 $.hello('backToTop');  一键调用回到顶部
-				 $.hello('isLeapYear'); 判断指定某年是否为闰年
-v 2.3.1  提供压缩版本				 
-v 2.3.2  优化hello-clip 图片转base64后执行裁剪				 
-v 2.3.3  优化hello-scroll 窗口改变大小时的响应				 
-v 2.3.4  扩展hello-button插件				 
-v 2.3.5  修复hello-scroll 多个滚动条生成的问题	 
+v 2.3.0  	扩展内置方法
+				格式化当前时间，年月日-时分秒-毫秒 - 时间戳 - 星期 - 季度
+				$.hello('backToTop');  一键调用回到顶部
+				$.hello('isLeapYear'); 判断指定某年是否为闰年
+v 2.3.1  	提供压缩版本				 
+v 2.3.2  	优化hello-clip 图片转base64后执行裁剪				 
+v 2.3.3  	优化hello-scroll 窗口改变大小时的响应				 
+v 2.3.4  	扩展hello-button插件				 
+v 2.3.5  	修复hello-scroll 多个滚动条生成的问题	 
+v 2.5.1  	优化path返回值
+				建立debug，返回页面当前执行$.hello()方法相关信息
+				删除部分冗余方法
+				*删除未压缩版本
+			  
