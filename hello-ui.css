@@ -162,4 +162,22 @@ h6{font-size: 12px;}
 .layout-tip i{font-size:18px;margin:0;padding:0;}
 .layout-tip td{vertical-align:top;padding:5px;font-size:14px;}
 
-
+/*表单字数控制*/
+.hello-textSize.textarea,.hello-textSize.input{border:1px solid #ccc;overflow:hidden;}
+.hello-textSize.textarea p,.hello-textSize.input p{background:#eee;font-size:12px;color:#999;}
+.hello-textSize.textarea{border:1px solid #ccc;width:350px;}
+.hello-textSize.textarea .wrap{padding:5px;}
+.hello-textSize.textarea textarea{border:none;resize:none;width:100%;display:block;min-height:55px;height:55px;}
+.hello-textSize.textarea p{border-top:1px solid #ddd;text-align:right;padding:5px;}
+.hello-textSize.input{width:300px;height:25px;}
+.hello-textSize.input input{border:none;text-indent:5px;width:100%;height:25px;line-height:25px;}
+.hello-textSize.input .wrap,
+.hello-textSize.input p{display:inline-block;float:left;height:25px;line-height:25px;}
+.hello-textSize.input .wrap{width:80%;padding:0;}
+.hello-textSize.input p{width:20%;text-align:center;border-left:1px solid #ddd;margin-left:-1px;}
+.hello-numControl{border-top:1px solid #ccc;border-bottom:1px solid #ccc;width:110px;overflow:hidden;}
+.hello-numControl input{width:56px;line-height:23px;height:25px;border:none;text-align:center;float:left;font-size:13px;font-family:arial;}
+.hello-numControl-add,
+.hello-numControl-minus{width:25px;height:25px;line-height:25px;color:#555;font-size:20px;font-family:sans-serif;text-align:center;display:inline-block;float:left;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:pointer;user-select:none;}
+.hello-numControl-add:hover,.hello-numControl-minus:hover{background:#f5f5f5;}
+.hello-numControl-add:active,.hello-numControl-minus:active{ box-shadow:inset 1px 3px 5px #bbb;background:#e5e5e5;}
