@@ -58,7 +58,7 @@ h6{font-size: 12px;}
 .hello-dialog .title:after{content:" "; display:block; height:0; visibility:hidden; clear:both;}
 .hello-dialog .title span{display:inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;width:70%;font-size:13px;}
 .hello-dialog .title .btns{font-size:12px;color:#aaa;font-style:normal;display:inline-block;float:right;cursor:pointer;}
-.hello-dialog .container{height:auto;color:#909090;padding:15px;font-size:13px;position:relative;}
+.hello-dialog .container{height:auto;width:auto !important;color:#909090;padding:15px;font-size:13px;position:relative;}
 .hello-dialog .container iframe{position:absolute;width:100%;height:100%;border:none;overflow:auto;top:0;left:0;display:block;}
 .hello-dialog .btng{padding:15px;}
 .hello-dialog .btng>.btns{display:inline-block;text-align:center;padding:5px 15px;border-radius:3px;font-size:13px;}
@@ -70,9 +70,9 @@ h6{font-size: 12px;}
 /*手风琴*/	
 .hello-accordion{border: 1px solid #ddd;overflow: hidden;font-size: 13px;color: #888;margin-bottom: 5px;}
 .hello-accordion-trigger{padding:10px;cursor: pointer;color: #337ab7;overflow: hidden;}
-.hello-accordion-trigger i.btn{float: right;}
-.hello-accordion-trigger i.btn:after{content: "展开";font-size: 12px;color: #ddd;font-style: normal;}
-.hello-accordion-trigger i.btn.current:after{content: "收起";}
+.hello-accordion-trigger label.label{float: right;}
+.hello-accordion-trigger label.label:after{content: "+";font-size: 20px;color: #ddd;font-style: normal;font-family:sans-serif;}
+.hello-accordion-trigger label.label.current:after{content: "-";}
 .hello-accordion-trigger:hover{background: #f5f5f5;}
 .hello-accordion-container{padding:10px;border-top: 1px solid #ddd;display: none;}
 
@@ -80,7 +80,7 @@ h6{font-size: 12px;}
 .hello-zoom{position:relative;margin:0 0 50px 0;}
 .hello-zoom>img{width:100%;height:100%;}
 .hello-zoom .glasses{position:absolute;top:0;left:0;overflow:hidden;border-radius:50%;display:none;cursor:none;z-index:999;box-shadow:0 0 0 4px rgba(255,255,255,1),0 10px 15px rgba(0,0,0,0.7);background: #f5f5f5;}
-.hello-zoom .glasses img{position:absolute;top:0;left:0;display:block;}
+.hello-zoom .glasses img{position:absolute;top:0;left:0;display:block;max-width:none;}
 
 /*无缝轮播*/
 .hello-carousel{position: relative;overflow: hidden;}
@@ -96,7 +96,7 @@ h6{font-size: 12px;}
 .hello-carousel .carousel-dots .dots{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;margin:0 4px;cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
 .hello-carousel .carousel-dots .dots.current{background:#007cc1;-webkit-transform: scale(1.7);-moz-transform: scale(1.7);-ms-transform: scale(1.7);-o-transform: scale(1.7);transform: scale(1.7);}
 
-/*分步提示*/
+/*流程指向*/
 .hello-step{border: 1px solid #ddd;overflow: hidden;background: #fff;width:600px;}
 .hello-step .item{display: block;white-space:nowrap;text-overflow:ellipsis;float: left;text-align: center;font-size: 13px;color: #888;position: relative;line-height:40px;}
 .hello-step .item span{position: relative;z-index: 3;padding-left:25px;}
@@ -137,7 +137,8 @@ h6{font-size: 12px;}
 .hello-scroll:hover .hello-scroll-bar{background:rgba(0,0,0,0.35);}
 
 /*按钮*/
-.hello-btn{background:#ccc;cursor:pointer;padding:0 15px;line-height:30px;border-radius:3px;border:none;outline:none;}
+.hello-btn{background:#ccc;cursor:pointer;padding:0 15px;line-height:30px;border:none;outline:none;}
+.hello-btn:active{box-shadow:inset 2px 3px 15px rgba(0,0,0,0.38);}
 .hello-btn.default{background: #333;color:#fff;}
 .hello-btn.warning{background: #F4A522;color:#fff;}
 .hello-btn.success{background: #17A05E;color:#fff;}
@@ -160,9 +161,9 @@ h6{font-size: 12px;}
 .layout-tip.error{background: #B40000;}
 .layout-tip.info{background: #158FD0;}
 .layout-tip i{font-size:18px;margin:0;padding:0;}
-.layout-tip td{vertical-align:top;padding:5px;font-size:14px;}
+.layout-tip td{vertical-align:top;padding:5px;font-size:14px;color:#fff;}
 
-/*表单字数控制*/
+/*表单字符控制*/
 .hello-textSize.textarea,.hello-textSize.input{border:1px solid #ccc;overflow:hidden;}
 .hello-textSize.textarea p,.hello-textSize.input p{background:#eee;font-size:12px;color:#999;}
 .hello-textSize.textarea{border:1px solid #ccc;width:350px;}

@@ -52,7 +52,7 @@
 			});
 		}
 		function scroll() {
-			$(document).on("mousedown.scroll",$bar,function(e) {
+			$this.on("mousedown.scroll",$bar,function(e) {
 				var $this_ = $(this),mdPos = e.clientY - $bar.offset().top;
 				$this.on('mousemove.scroll',function(e) {
 					$wrap.addClass('no-select');
