@@ -56,31 +56,36 @@
 		};
 	
 		function drag() {
-			var $this = $('.hello-dialog'),$width = $(window).width(),$height = $(window).height();
+			var $this = $('.hello-dialog'),width = $(window).outerWidth(),height = $(window).outerHeight();
 			$this.find('.title').mousedown(function(e) {
-				var winPosX = e.pageX - $this.offset().left;
-				var winPosY = e.pageY - $this.offset().top + $(window).scrollTop();
-				$(window).bind('mousemove',function(e) {
+				var startX = e.clientX - $this.offset().left,
+					  startY = e.clientY - $this.offset().top,
+					  scrollTop = $(window).scrollTop(),
+					  dialogWidth = $this.width(),
+					  dialogHeight = $this.height(),
+					  maxLeft = width - dialogWidth,
+					  maxTop = height - dialogHeight + scrollTop;
+				$(window).bind('mousemove.helloDialog',function(e) {
 					$this.css({
-						'top': e.pageY - winPosY,
-						'left': e.pageX - winPosX,
+						'top': e.clientY - startY - scrollTop,
+						'left': e.clientX - startX,
 						'margin': 0
 					});
-					if ($this.offset().left > $width - $this.width()) {
-						$this.offset({'left': $width - $this.width()});
+					if ($this.offset().left > maxLeft) {
+						$this.offset({'left': maxLeft});
 					}
 					if ($this.offset().left < 0) {
 						$this.offset({'left': 0});
 					}
-					if ($this.offset().top > $height - $this.height()) {
-						$this.offset({'top': $height - $this.height()});
+					if ($this.offset().top > maxTop) {
+						$this.offset({'top': maxTop});
 					}
-					if ($this.offset().top < 0) {
-						$this.offset({'top': 0});
+					if ($this.offset().top < scrollTop) {
+						$this.offset({'top': scrollTop});
 					}
 				});
 			}).mouseup(function() {
-				$(window).unbind("mousemove");
+				$(window).unbind("mousemove.helloDialog");
 			});
 		}
 
