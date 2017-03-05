@@ -1,5 +1,5 @@
 /*
-* Hello-ui v2.6.1 (https://github.com/749264345/hello-ui)
+* Hello-ui v2.7.0 (https://github.com/749264345/hello-ui)
 * Copyright 2015-2017 祝宇(Jnst).
 * From China
 * E-mail : 749264345@qq.com
@@ -38,3 +38,4 @@ v 2.5.7  	优化
 v 2.6.0  	hello-carousel 增加垂直方向轮播 
 v 2.6.1  	修复弹窗拖拽问题
 v 2.6.2  	修改优化部分样式
+v 2.7.0  	轮播添加鼠标手势拖拽

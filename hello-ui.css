@@ -85,18 +85,23 @@ h6{font-size: 12px;}
 .hello-zoom .glasses img{position:absolute;top:0;left:0;display:block;max-width:none !important;}
 
 /*无缝轮播*/
+
 .hello-carousel{position: relative;overflow: hidden;}
 .hello-carousel .table,.hello-carousel .table-cell{width:100%;height:100%;text-align:center;vertical-align:middle;display:table;}
 .hello-carousel .table-cell{display:table-cell;}
 .hello-carousel .carousel-wrap{height: 100%;position:absolute;z-index:1;top:0;left:0;width:999999px;}
-.hello-carousel .carousel-item{height: 100%;position:absolute;overflow:hidden;}
+.hello-carousel .carousel-item{background-color:#e0e0e0;height: 100%;position:absolute;overflow:hidden;user-select:none;-moz-user-select:none;-webkit-user-select:none;cursor:default;}
+.hello-carousel .carousel-item.grab{cursor:grab!important;cursor:-moz-grab!important;cursor:-webkit-grab!important;}
+.hello-carousel .carousel-item.grabbing{cursor:grabbing!important;cursor:-moz-grabbing!important;cursor:-webkit-grabbing!important;}
 .hello-carousel .carousel-item img{max-width: 100%;}
-.hello-carousel .carousel-arrow{position: absolute;top: 50%;display: inline-block;background:rgba(220,220,220,0.6); z-index:2;font-size:16px;cursor:pointer;padding:5px 10px;}
+.hello-carousel .carousel-arrow{width:50px;height:50px;line-height:50px;text-align:center;border-radius:25px;position: absolute;top: 50%;display: inline-block;background:rgba(200,200,200,0.6); z-index:2;cursor:pointer;}
+.hello-carousel .carousel-arrow i{line-height:50px;font-size:20px;}
 .hello-carousel .carousel-arrow.carousel-arrow-left{left: 2%;}
 .hello-carousel .carousel-arrow.carousel-arrow-right{right: 2%;}
-.hello-carousel .carousel-dots{width:100%;position:absolute;bottom:50px;left:0;text-align:center;z-index:2;}
+.hello-carousel .carousel-dots{width:100%;position:absolute;bottom:20px;left:0;text-align:center;z-index:2;}
 .hello-carousel .carousel-dots .dots{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;margin:0 4px;cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
 .hello-carousel .carousel-dots .dots.current{background:#007cc1;-webkit-transform: scale(1.7);-moz-transform: scale(1.7);-ms-transform: scale(1.7);-o-transform: scale(1.7);transform: scale(1.7);}
+
 
 /*流程指向*/
 .hello-step{border: 1px solid #ddd;overflow: hidden;background: #fff;width:600px;}
