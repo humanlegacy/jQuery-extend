@@ -1,6 +1,7 @@
 /*
-* Hello-ui v2.7.1 (https://github.com/749264345/hello-ui)
-* Copyright 2015-2017 祝宇(Jnst).
+* Hello-ui v2.7.2(https://github.com/749264345/hello-ui)
+* Date:2017/04/02
+* Copyright 2015-2017 祝宇(Jnst)
 * From China
 * E-mail : 749264345@qq.com
 * http://www.hello-ui.com
@@ -40,5 +41,7 @@
 # 2.6.2  	修改优化部分样式
 # 2.7.0  	轮播添加鼠标手势拖拽
 # 2.7.1		更新canvas插件,添加运算验证；更新主程序压缩
+# 2.7.2	主程序报错拦截；添加数据表组件；
+
 
 */
