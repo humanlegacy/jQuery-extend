@@ -1,5 +1,5 @@
 ; (function($) {
-	$.helloPlug.prototype.selecter = function(param){
+	$.helloExtend.prototype.selecter = function(param){
 		var defaults = {
 			ele:'.demo',
 			title: '请选择',

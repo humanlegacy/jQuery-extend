@@ -1,5 +1,5 @@
 ; (function($) {
-	$.helloPlug.prototype.tabs = function(param){
+	$.helloExtend.prototype.tabs = function(param){
 		var defaults = {
 			ele:'.tabs',
 			triggerName: ['Black', 'Red', 'Yellow', 'White', 'Green'],

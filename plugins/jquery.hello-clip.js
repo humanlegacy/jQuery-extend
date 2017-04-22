@@ -1,5 +1,5 @@
 ; (function($, window, undefined) {
-	$.helloPlug.prototype.clip = function(param){
+	$.helloExtend.prototype.clip = function(param){
 		var defaults = {
 			ele:'.hello-clip',
 			width: 150,

@@ -1,5 +1,5 @@
 ; (function($,document) {
-	$.helloPlug.prototype.scroll = function(param){
+	$.helloExtend.prototype.scroll = function(param){
 		var defaults = {
 			step: 10,
 			animate: null,

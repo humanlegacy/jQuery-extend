@@ -14,7 +14,7 @@
  				规范js代码，统一换行缩进改为Tab
 # 2.0.0	全局对象hello
  				$.hello(plugName,param);  //封装插件
- 				$.helloPlug.prototype.autoComplete = function(param){}; //扩展
+ 				$.helloExtend.prototype.autoComplete = function(param){}; //扩展
 # 2.1.1	扩展工具：生成随机色
  				扩展插件：基于canvas纯前端实现验证码验证
 # 2.2.0	扩展插件：小提示 tip
@@ -40,8 +40,9 @@
 # 2.6.1  	修复弹窗拖拽问题
 # 2.6.2  	修改优化部分样式
 # 2.7.0  	轮播添加鼠标手势拖拽
-# 2.7.1		更新canvas插件,添加运算验证；更新主程序压缩
+# 2.7.1	更新canvas插件,添加运算验证；更新主程序压缩
 # 2.7.2	主程序报错拦截；添加数据表组件；
-
+# 2.7.3	更新主程序 $.hello([方法],[参数/null],[Boolean]);
+				整合原dialog与tip为多模对话框，支持拖拽，ajax，支持回调函数
 
 */

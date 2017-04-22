@@ -1,5 +1,5 @@
 ; (function($,document) {
-	$.helloPlug.prototype.autoComplete = function(param){
+	$.helloExtend.prototype.autoComplete = function(param){
 		var defaults = {
 			ele:'.demo',
 			data: [

@@ -1,5 +1,5 @@
 ;(function($) {
-	$.helloPlug.prototype.button = function(param){
+	$.helloExtend.prototype.button = function(param){
 		var defaults = {
 			ele:'.hello-btn',
 			scene:'text',

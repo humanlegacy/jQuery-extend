@@ -1,5 +1,5 @@
 ; (function($) {
-	$.helloPlug.prototype.zoom = function(param){
+	$.helloExtend.prototype.zoom = function(param){
 		var defaults = {
 			ele:'.zoom',
 			container: [450, 300],
