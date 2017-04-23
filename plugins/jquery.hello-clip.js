@@ -4,7 +4,7 @@
 			ele:'.hello-clip',
 			width: 150,
 			height: 150,
-			saveFileName: $.hello('randomStr',5) + '.png',
+			saveFileName: $.hello('getString',5) + '.png',
 		},
 		opts = $.extend({},defaults, param),
 		$this = $(opts.ele),
@@ -14,7 +14,7 @@
 		imgWidth = 0,
 		imgHeight = 0,
 		pre = 1,
-		canvasID = "hello-clip-" + $.hello('randomStr',5);
+		canvasID = "hello-clip-" + $.hello('getString',5);
 		
 		function display() {
 			var html = '<span>点击上传图片</span>' + '<input type="file" name="helloClipPic" class="helloClipPic" />' + 
