@@ -1,6 +1,6 @@
 /*
-* Hello-ui v2.7.2(https://github.com/749264345/hello-ui)
-* Date:2017/04/02
+* Hello-ui v2.7.5(https://github.com/749264345/hello-ui)
+* Date:2017/06/23
 * Copyright 2015-2017 祝宇(Jnst)
 * From China
 * E-mail : 749264345@qq.com
@@ -44,5 +44,6 @@
 # 2.7.2	主程序报错拦截；添加数据表组件；
 # 2.7.3	更新主程序 $.hello([方法],[参数/null],[Boolean]);
 				整合原dialog与tip为多模对话框，支持拖拽，ajax，支持回调函数
+# 2.7.5	优化				
 
 */

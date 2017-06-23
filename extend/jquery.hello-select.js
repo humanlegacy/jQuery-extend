@@ -1,7 +1,8 @@
 ; (function($) {
-	$.helloExtend.prototype.selecter = function(param){
+	$.helloExtend.prototype.select = function(param){
 		var defaults = {
-			ele:'.demo',
+			ele:'.hello-select',
+			smartScroll:false,
 			title: '请选择',
 			city: false,
 			split: '-',
@@ -11,22 +12,27 @@
 		opts = $.extend({},defaults, param),
 		$this = $(opts.ele);
 		
+		function display(type) {
+			opts.smartScroll ? 
+				$this.wrapInner('<div class="hello-select-wrap smart-scroll"></div>') :
+				$this.wrapInner('<div class="hello-select-wrap"></div>') ;
+			
+			$this.prepend('<span class="hello-select-btn">' + type + '</span>');
+		}
 		function open () {
-			$this.on('click', '.select-btn',function() {
-				$(this).next().is(":visible") ? $(this).next().removeClass("current") : $(this).next().addClass("current");
+			$this.on('click', '.hello-select-btn',function() {
+				$this.find('.hello-select-wrap').toggleClass('current');
 			});
 		}
 		function close() {
-			$this.on("mouseleave",".container",function() {
-				$(this).removeClass('current');
-			});
+			$this.find('.hello-select-wrap').removeClass('current');
 		}
 		function select() {
-			$this.find(".container").on('click', 'li',function() {
+			$this.find(".hello-select-list").on('click', 'li',function() {
 				var selected = $(this).text();
-				$(this).parent().parent().find("a").text(selected);
+				$this.find(".hello-select-btn").text(selected);
 				opts.input ? $(opts.input).val(selected) : '';
-				$(this).removeClass("current");
+				close();
 			});
 		}
 		function common() {
@@ -38,8 +44,10 @@
 		function cityOpts(optsList) {
 			return '<li>' + optsList + '</li>';
 		}
-		function city(self) {
-			var html = '<div class="container container-city">' + '<div class="tabs">' + '<span class="current">省级</span><span>市级</span><span>区级</span>' + '</div>' + '<div class="container-inner"><ul class="current"></ul><ul></ul><ul></ul></div>' + '</div>';
+
+		function city() {
+			$this.addClass('hello-city');
+			var html = '<div class="hello-select-city">' + '<div class="tabs">' + '<span class="current">省级</span><span>市级</span><span>区级</span>' + '</div>' + '<div class="container-inner"><ul class="current"></ul><ul></ul><ul></ul></div>' + '</div>';
 			$this.html(html);
 			var M = $this.find(".container-inner"),
 				   M1 = M.find("ul").eq(0),
@@ -98,14 +106,14 @@
 							$(this).hasClass('current') ? cityArr.push($(this).text()) : '';
 						});
 					});
-					$(this).parentsUntil($this).parent().find('.select-btn').find('a').html(cityArr.join(opts.split));
+					$(this).parentsUntil($this).parent().find('.hello-select-btn a').html(cityArr.join(opts.split));
 					opts.input ? $(opts.input).val(cityArr.join(opts.split)) : '';
+					close();
 				});
 			});
 		}
-		function display(type) {
-			$this.prepend('<span class="select-btn"><a href="javascript:void(0);">' + type + '</a><i class="arrow"></i></span>');
-		}
+
 		opts.city ? city() : common();
+		$.hello('_mScroll','.hello-select-wrap.current.smart-scroll');
 	}
 })(jQuery);
