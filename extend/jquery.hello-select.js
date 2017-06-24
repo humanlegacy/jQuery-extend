@@ -21,11 +21,11 @@
 		}
 		function open () {
 			$this.on('click', '.hello-select-btn',function() {
-				$this.find('.hello-select-wrap').toggleClass('current');
+				$this.toggleClass('current');
 			});
 		}
 		function close() {
-			$this.find('.hello-select-wrap').removeClass('current');
+			$this.removeClass('current');
 		}
 		function select() {
 			$this.find(".hello-select-list").on('click', 'li',function() {
