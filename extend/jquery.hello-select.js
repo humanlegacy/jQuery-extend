@@ -114,6 +114,6 @@
 		}
 
 		opts.city ? city() : common();
-		$.hello('_mScroll','.hello-select-wrap.current.smart-scroll');
+		$.hello('_mScroll','.hello-select.current .hello-select-wrap.smart-scroll');
 	}
 })(jQuery);
