@@ -9,7 +9,7 @@
  在线版本，您还可以前往以下网址下载：
 
 ### [GitHub下载](https://github.com/749264345/hello-ui/archive/master.zip)
-
+> version 2.7.7 / 2017-06-25
 > 下载使用如遇到相关问题可通过邮件与我联系749264345@qq.com。
 
 ## 目录结构
