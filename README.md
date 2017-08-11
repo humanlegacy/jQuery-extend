@@ -1,51 +1,74 @@
-/*
-* Hello-ui v2.7.6(https://github.com/749264345/hello-ui)
-* Date:2017/06/25
-* Copyright 2015-2017 祝宇(Jnst)
-* From China
-* E-mail : 749264345@qq.com
-* http://www.hello-ui.com
+# 欢迎使用 Hello-ui组件
+
+------
+
+基于jQuery面向对象开发，多模、兼容、流畅，立即开启$.hello之旅！ 您可以免费使用下列组件：
+
+> * 无缝轮播组件
+> * 模态框
+> * 下拉集成全国三级联动
+> * 按钮组件
 
 
-# 1.0.1	无缝轮播悬停问题
-# 1.1.0	新增图片裁剪插件[jquery.helloclip.js]
-# 1.2.0	新增自定义滚动条插件[jquery.helloscroll.js]
- 				添加lib目录
- 				规范js代码，统一换行缩进改为Tab
-# 2.0.0	全局对象hello
- 				$.hello(plugName,param);  //封装插件
- 				$.helloExtend.prototype.autoComplete = function(param){}; //扩展
-# 2.1.1	扩展工具：生成随机色
- 				扩展插件：基于canvas纯前端实现验证码验证
-# 2.2.0	扩展插件：小提示 tip
-# 2.2.1	优化主页面
-# 2.2.2  	修复jQuery获取当前文件路径的问题
- 				扩展$.hello('path'); //获取当前文件路径
-# 2.3.0  	扩展内置方法
- 				格式化当前时间，年月日-时分秒-毫秒 - 时间戳 - 星期 - 季度
- 				$.hello('backToTop');  一键调用回到顶部
- 				$.hello('isLeapYear'); 判断指定某年是否为闰年
-# 2.3.1  	提供压缩版本				 
-# 2.3.2  	优化hello-clip 图片转base64后执行裁剪				 
-# 2.3.3  	优化hello-scroll 窗口改变大小时的响应				 
-# 2.3.4  	扩展hello-button插件				 
-# 2.3.5  	修复hello-scroll 多个滚动条生成的问题	 
-# 2.5.1  	优化path返回值
- 				建立debug，返回页面当前执行$.hello()方法相关信息
- 				删除部分冗余方法
- 				*删除未压缩版本
-# 2.5.5  	表单字数控制工具，调整插件归属		  
-# 2.5.7  	优化	  
-# 2.6.0  	hello-carousel 增加垂直方向轮播 
-# 2.6.1  	修复弹窗拖拽问题
-# 2.6.2  	修改优化部分样式
-# 2.7.0  	轮播添加鼠标手势拖拽
-# 2.7.1	更新canvas插件,添加运算验证；更新主程序压缩
-# 2.7.2	主程序报错拦截；添加数据表组件；
-# 2.7.3	更新主程序 $.hello([方法],[参数/null],[Boolean]);
-				整合原dialog与tip为多模对话框，支持拖拽，ajax，支持回调函数
-# 2.7.5	优化				
-# 2.7.6	轮播支持移动端触摸滚动	
-# 2.7.7	优化主程序
+ 在线版本，您还可以前往以下网址下载：
 
-*/
+### [GitHub下载](https://github.com/749264345/hello-ui/archive/master.zip)
+
+> 下载使用如遇到相关问题可通过邮件与我联系749264345@qq.com。
+
+------
+
+## 目录结构
+hello-ui前端组件库是基于`jQuery-2.2.3.min.js`开发，简单易用。
+部分组件依赖于其他组件库，具体请在实例页面查看相关页面源代码。
+```javascript
+/*目录结构*/
+hello-ui
+    ├ libs                                 //组件依赖库,jQuery库
+    ├ extend                               //扩展目录
+    ├ hello-ui.min.css                     //样式文件
+    ├ jquery.hello-ui.min.js               //主程序
+```
+## 扩展
+在hello-ui基础上自定义扩展组件
+```javascript
+;(function($) {
+    $.helloExtend.prototype.getColor = function(param){
+        //这里是您的代码···
+    }
+})(jQuery);   
+```
+调用您扩展的组件
+```javascript
+$.hello('getColor',param);
+```
+##高级使用
+1.在您的页面中引入`hello-ui.min.css` 与 `jquery.hello-ui.min.js` 即可随意调用组件中的组件与内置方法;
+```javascript
+$.hello('_loadExt',['dialog']);    
+//调用dialog组件，传递数组
+```
+
+2.在传入第三个参数来调试您的代码。你可以发现组件调用具有一定格式：`$.hello([方法],[参数/null],[Boolean]);`具有3个参数，第一个为调用的组件名称（必填），第二个是传入组件的参数（选填），第三个是组件调试，当调用的组件需要调试时，请传入布尔值true，按F12在控制台你可以看到调试结果。
+
+如果需要调试的组件没有可传入的参数，请为第二个参数传入null。
+```javascript
+$.hello('dialog',{width:500},true);    
+//返回页面中正在执行的$.hello()方法，以及其执行所用的时间，单位为毫秒。
+
+//该方法没有相关参数时，第二个参数必须传入null;
+$.hello('dialog',null,true);
+```
+##内置方法
+| 方法        | 使用说明   | 
+| --------   | -----:  | 
+| \$.hello("_date","Y-M-D(d)(周W,第Q季度) h:m:s:S 时间戳:T");| 返回当前格式化时间 |  
+| \$.hello('_path');|返回当前JS文件路径和所在目录|
+|\$.hello('_randArr',["red", "blue", "yellow", "green"]);	|随机获取数组中某一项|
+|\$.hello('_rand',[1,5]);|	生成指定范围内的随机数|
+|\$.hello('_getNum',[11,5,8,0,-3,7]);	|返回数组中的最大值和最小值|
+|\$.hello('_remove',{array:["red", "blue", "yellow", "green"],del:'green'});	|删除数组中指定元素|
+|\$.hello('_getStr',5);	|返回随机生成指定长度的数字字母组合|
+|\$.hello('_randColor');	|返回16进制随机色|
+|\$.hello("_backToTop",{speed:300,onLive:true,onShow:50});	|在页面中插入一个返回顶部的按钮，参数可选，向上滚动速度，是否持续显示按钮，显示按钮时的滚动条高度|
+|\$.hello('_drag',{target:'.box',trigger:'.title',startCallBack:function(e){},moveCallBack:function(e){},endCallBack:function(e){}});|	使元素可拖拽并自动适配移动端，target为移动容器，trigger为触发容器,并具有三个回调函数，分别为点击触发容器时，拖拽中以及释放拖拽，回调函数均可接收event事件对象|
