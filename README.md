@@ -1,7 +1,4 @@
 # 欢迎使用 Hello-ui组件
-
-------
-
 基于jQuery面向对象开发，多模、兼容、流畅，立即开启$.hello之旅！ 您可以免费使用下列组件：
 
 > * 无缝轮播组件
@@ -9,14 +6,11 @@
 > * 下拉集成全国三级联动
 > * 按钮组件
 
-
  在线版本，您还可以前往以下网址下载：
 
 ### [GitHub下载](https://github.com/749264345/hello-ui/archive/master.zip)
 
 > 下载使用如遇到相关问题可通过邮件与我联系749264345@qq.com。
-
-------
 
 ## 目录结构
 hello-ui前端组件库是基于`jQuery-2.2.3.min.js`开发，简单易用。
@@ -42,7 +36,8 @@ hello-ui
 ```javascript
 $.hello('getColor',param);
 ```
-##高级使用
+## 高级使用
+
 1.在您的页面中引入`hello-ui.min.css` 与 `jquery.hello-ui.min.js` 即可随意调用组件中的组件与内置方法;
 ```javascript
 $.hello('_loadExt',['dialog']);    
@@ -59,9 +54,9 @@ $.hello('dialog',{width:500},true);
 //该方法没有相关参数时，第二个参数必须传入null;
 $.hello('dialog',null,true);
 ```
-##内置方法
+## 内置方法
 | 方法        | 使用说明   | 
-| --------   | -----:  | 
+| --------      | -----:          | 
 | \$.hello("_date","Y-M-D(d)(周W,第Q季度) h:m:s:S 时间戳:T");| 返回当前格式化时间 |  
 | \$.hello('_path');|返回当前JS文件路径和所在目录|
 |\$.hello('_randArr',["red", "blue", "yellow", "green"]);	|随机获取数组中某一项|
