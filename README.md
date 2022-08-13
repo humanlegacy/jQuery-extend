@@ -63,3 +63,7 @@ $.hello('dialog',null,true);
 |\$.hello('_randColor');	|返回16进制随机色|
 |\$.hello("_backToTop",{speed:300,onLive:true,onShow:50});	|在页面中插入一个返回顶部的按钮，参数可选，向上滚动速度，是否持续显示按钮，显示按钮时的滚动条高度|
 |\$.hello('_drag',{target:'.box',trigger:'.title',startCallBack:function(e){},moveCallBack:function(e){},endCallBack:function(e){}});|	使元素可拖拽并自动适配移动端，target为移动容器，trigger为触发容器,并具有三个回调函数，分别为点击触发容器时，拖拽中以及释放拖拽，回调函数均可接收event事件对象|
+
+
+# jQuery.carousel.js 插件演示
+>[点击查看jQuery.carousel.js实例](https://humanlegacy.github.io/jQuery-extend)
